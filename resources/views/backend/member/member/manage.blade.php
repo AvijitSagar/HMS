@@ -1,0 +1,101 @@
+@extends('backend.master')
+
+@section('title')
+    Manage Members
+@endsection
+
+@section('content')
+    <section>
+        <div class="app-content main-content mt-0">
+            <div class="side-app">
+
+                <!-- CONTAINER -->
+                <div class="main-container container-fluid">
+
+
+                    <!-- PAGE-HEADER -->
+                    <div class="page-header">
+                        <div>
+                            <h1 class="page-title">Manage Members</h1>
+                        </div>
+                        <div class="ms-auto pageheader-btn">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Member</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Manage Members</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- PAGE-HEADER END -->
+                    <!-- Row -->
+                    <div class="row row-sm">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header border-bottom">
+                                    <h3 class="card-title">Manage Members</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-center text-success">{{ Session::get('msg') }}</p>
+                                    <div class="table-responsive">
+                                        <table id="example3" class="table table-bordered text-nowrap border-bottom">
+                                            <thead>
+                                                <tr>
+                                                    <th class="border-bottom-0">SL</th>
+                                                    <th class="border-bottom-0">Name</th>
+                                                    {{-- <th class="border-bottom-0">Last Name</th> --}}
+                                                    <th class="border-bottom-0">Institute</th>
+                                                    <th class="border-bottom-0">Voter ID</th>
+                                                    <th class="border-bottom-0">Mobile</th>
+                                                    <th class="border-bottom-0">Email</th>
+                                                    <th class="border-bottom-0">Image</th>
+                                                    <th class="border-bottom-0">Gurdian Name</th>
+                                                    <th class="border-bottom-0">Gurdian Mobile</th>
+                                                    <th class="border-bottom-0">Gurdian Email</th>
+                                                    <th class="border-bottom-0">Local Gurdian Name</th>
+                                                    <th class="border-bottom-0">Local Gurdian Mobile</th>
+                                                    <th class="border-bottom-0">Local Gurdian Email</th>
+                                                    <th class="border-bottom-0">Status</th>
+                                                    <th class="border-bottom-0">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($members as $member)
+                                                    <tr>
+                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td>{{$member->member_first_name . " " . $member->member_last_name}}</td>
+                                                        {{-- <td>{{$member->member_last_name}}</td> --}}
+                                                        <td>{{$member->member_institute}}</td>
+                                                        <td>{{$member->member_voter_id}}</td>
+                                                        <td>{{$member->member_mobile}}</td>
+                                                        <td>{{$member->member_email}}</td>
+                                                        <td>{{$member->member_image}}</td>
+                                                        <td>{{$member->gurdian_name}}</td>
+                                                        <td>{{$member->gurdian_mobile}}</td>
+                                                        <td>{{$member->gurdian_email}}</td>
+                                                        <td>{{$member->local_gurdian_name}}</td>
+                                                        <td>{{$member->local_gurdian_mobile}}</td>
+                                                        <td>{{$member->local_gurdian_address}}</td>
+                                                        <td>{{$member->status}}</td>
+                                                        <td>
+                                                            <a href="" class="btn btn-success">
+                                                                <li class="fe fe-edit"></li>
+                                                            </a>
+                                                            <a href="" class="btn btn-danger">
+                                                                <li class="fe fe-trash"></li>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Row -->
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection
