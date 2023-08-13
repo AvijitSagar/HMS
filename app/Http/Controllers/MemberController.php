@@ -66,6 +66,7 @@ class MemberController extends Controller
      */
     public function destroy(Member $member)
     {
-        //
+        Member::deleteMember($member);
+        return back()->with('msg', 'Member deleted successfully');
     }
 }

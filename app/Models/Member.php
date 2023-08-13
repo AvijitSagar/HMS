@@ -70,4 +70,10 @@ class Member extends Model
         self::$member->save();
 
     }
+
+    public static function deleteMember($member){
+        self::$member = Member::find($member->id);
+        self::$member->delete();
+
+    }
 }

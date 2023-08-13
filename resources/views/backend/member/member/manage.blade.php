@@ -61,27 +61,37 @@
                                                 @foreach ($members as $member)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{$member->member_first_name . " " . $member->member_last_name}}</td>
+                                                        <td>{{ $member->member_first_name . ' ' . $member->member_last_name }}
+                                                        </td>
                                                         {{-- <td>{{$member->member_last_name}}</td> --}}
-                                                        <td>{{$member->member_institute}}</td>
-                                                        <td>{{$member->member_voter_id}}</td>
-                                                        <td>{{$member->member_mobile}}</td>
-                                                        <td>{{$member->member_email}}</td>
-                                                        <td>{{$member->member_image}}</td>
-                                                        <td>{{$member->gurdian_name}}</td>
-                                                        <td>{{$member->gurdian_mobile}}</td>
-                                                        <td>{{$member->gurdian_email}}</td>
-                                                        <td>{{$member->local_gurdian_name}}</td>
-                                                        <td>{{$member->local_gurdian_mobile}}</td>
-                                                        <td>{{$member->local_gurdian_address}}</td>
-                                                        <td>{{$member->status == 1 ? 'Active' : 'Inactive'}}</td>
+                                                        <td>{{ $member->member_institute }}</td>
+                                                        <td>{{ $member->member_voter_id }}</td>
+                                                        <td>{{ $member->member_mobile }}</td>
+                                                        <td>{{ $member->member_email }}</td>
+                                                        <td>{{ $member->member_image }}</td>
+                                                        <td>{{ $member->gurdian_name }}</td>
+                                                        <td>{{ $member->gurdian_mobile }}</td>
+                                                        <td>{{ $member->gurdian_email }}</td>
+                                                        <td>{{ $member->local_gurdian_name }}</td>
+                                                        <td>{{ $member->local_gurdian_mobile }}</td>
+                                                        <td>{{ $member->local_gurdian_address }}</td>
+                                                        <td>{{ $member->status == 1 ? 'Active' : 'Inactive' }}</td>
                                                         <td>
-                                                            <a href="{{route('member.edit', $member->id)}}" class="btn btn-success">
-                                                                <li class="fe fe-edit"></li>
-                                                            </a>
-                                                            <a href="" class="btn btn-danger">
-                                                                <li class="fe fe-trash"></li>
-                                                            </a>
+                                                            <div class="d-flex">
+                                                                <a href="{{ route('member.edit', $member->id) }}"
+                                                                    class="btn btn-success">
+                                                                    <i class="fe fe-edit"></i>
+                                                                </a>
+                                                                &nbsp;&nbsp;
+                                                                <form action="{{ route('member.destroy', $member->id) }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="btn btn-danger">
+                                                                        <i class="fe fe-trash"></i>
+                                                                    </button>
+                                                                </form>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach
