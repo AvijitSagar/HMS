@@ -47,7 +47,9 @@ class MemberController extends Controller
      */
     public function edit(Member $member)
     {
-        //
+        return view('backend.member.member.edit', [
+            'member' => Member::find($member->id)
+        ]);
     }
 
     /**
@@ -55,7 +57,8 @@ class MemberController extends Controller
      */
     public function update(Request $request, Member $member)
     {
-        //
+        Member::updateMember($request, $member);
+        return redirect(route('member.index'))->with('msg', 'Member updated successfully');
     }
 
     /**

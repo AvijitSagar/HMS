@@ -74,9 +74,9 @@
                                                         <td>{{$member->local_gurdian_name}}</td>
                                                         <td>{{$member->local_gurdian_mobile}}</td>
                                                         <td>{{$member->local_gurdian_address}}</td>
-                                                        <td>{{$member->status}}</td>
+                                                        <td>{{$member->status == 1 ? 'Active' : 'Inactive'}}</td>
                                                         <td>
-                                                            <a href="" class="btn btn-success">
+                                                            <a href="{{route('member.edit', $member->id)}}" class="btn btn-success">
                                                                 <li class="fe fe-edit"></li>
                                                             </a>
                                                             <a href="" class="btn btn-danger">
