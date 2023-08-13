@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p class="text-center text-success">{{Session::get('msg')}}</p>
-                                    <form class="needs-validation" novalidate action="{{route('member.store')}}" method="POST">
+                                    <form class="needs-validation" novalidate action="{{route('member.store')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <h6 class="text-center"><i>MEMBER INFO</i></h6>
                                         <br><br>

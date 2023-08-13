@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p class="text-center text-success">{{Session::get('msg')}}</p>
-                                    <form class="needs-validation" action="{{route('member.update', $member->id)}}" method="POST" novalidate>
+                                    <form class="needs-validation" action="{{route('member.update', $member->id)}}" method="POST" enctype="multipart/form-data" novalidate>
                                         @csrf
                                         @method('PUT')
                                         <h6 class="text-center"><i>MEMBER INFO</i></h6>
@@ -81,9 +81,14 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="member_image">picture</label>
+                                                <label for="member_image">Current Image</label>
+                                                <img class="form-control" style="width: 100px" src="{{asset($member->member_image)}}" alt="member-image" height="100px" width="100px">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                                                <label for="member_image">Upload New Image</label>
                                                 <input name="member_image" type="file" accept="image/*" id="member_image" class="form-control">
-                                                <img src="{{$member->member_address}}" alt="member-image" height="100px" width="100px">
                                             </div>
                                         </div>
 

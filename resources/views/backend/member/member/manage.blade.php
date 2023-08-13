@@ -68,7 +68,9 @@
                                                         <td>{{ $member->member_voter_id }}</td>
                                                         <td>{{ $member->member_mobile }}</td>
                                                         <td>{{ $member->member_email }}</td>
-                                                        <td>{{ $member->member_image }}</td>
+                                                        <td>
+                                                            <img src="{{ $member->member_image }}" alt="member-image" height="50px" width="50px">
+                                                        </td>
                                                         <td>{{ $member->gurdian_name }}</td>
                                                         <td>{{ $member->gurdian_mobile }}</td>
                                                         <td>{{ $member->gurdian_email }}</td>

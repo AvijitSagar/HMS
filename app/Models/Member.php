@@ -9,7 +9,15 @@ class Member extends Model
 {
     use HasFactory;
 
-    private static $member;
+    private static $member, $image, $imageName, $directory;
+
+    public static function imageUpload($request){
+        self::$image = $request->file('member_image');
+        self::$imageName = self::$image->getClientOriginalName();
+        self::$directory = 'uploads/member-image/';
+        self::$image->move(self::$directory, self::$imageName);
+        return self::$directory . self::$imageName;
+    }
 
     public static function newMember($request){
 
@@ -22,7 +30,7 @@ class Member extends Model
         self::$member->member_mobile = $request->member_mobile;
         self::$member->member_email = $request->member_email;
         self::$member->member_address = $request->member_address;
-        self::$member->member_image = $request->member_image;
+        self::$member->member_image = self::imageUpload($request);
 
         self::$member->gurdian_name = $request->gurdian_name;
         self::$member->gurdian_voter_id = $request->gurdian_voter_id;
@@ -51,7 +59,14 @@ class Member extends Model
         self::$member->member_mobile = $request->member_mobile;
         self::$member->member_email = $request->member_email;
         self::$member->member_address = $request->member_address;
-        self::$member->member_image = $request->member_image;
+        if($request->file('member_image')){
+            if(file_exists(self::$member->member_image)){
+                unlink(self::$member->member_image);
+            }
+            self::$member->member_image = self::imageUpload($request);
+        }
+
+        
 
         self::$member->gurdian_name = $request->gurdian_name;
         self::$member->gurdian_voter_id = $request->gurdian_voter_id;
@@ -73,7 +88,9 @@ class Member extends Model
 
     public static function deleteMember($member){
         self::$member = Member::find($member->id);
+        if(file_exists(self::$member->member_image)){
+            unlink(self::$member->member_image);
+        }
         self::$member->delete();
-
     }
 }
