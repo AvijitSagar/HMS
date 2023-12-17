@@ -36,9 +36,9 @@
                                 </div>
                                 <div class="card-body">
                                     <p class="text-center text-success">{{Session::get('msg')}}</p>
-                                    <form class="needs-validation" action="{{route('member.update', $member->id)}}" method="POST" enctype="multipart/form-data" novalidate>
+                                    <form class="needs-validation" action="{{route('member.update', [$member->id])}}" method="POST" enctype="multipart/form-data" novalidate>
                                         @csrf
-                                        @method('PUT')
+                                        {{-- @method('PUT') --}}
                                         <h6 class="text-center"><i>MEMBER INFO</i></h6>
                                         <br><br>
                                         <div class="form-row">

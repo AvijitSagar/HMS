@@ -48,9 +48,9 @@ class Member extends Model
 
     }
 
-    public static function updateMember($request, $member){
+    public static function updateMember($request, $id){
 
-        self::$member = Member::find($member->id);
+        self::$member = Member::find($id);
 
         self::$member->member_first_name = $request->member_first_name;
         self::$member->member_last_name = $request->member_last_name;
@@ -65,8 +65,6 @@ class Member extends Model
             }
             self::$member->member_image = self::imageUpload($request);
         }
-
-        
 
         self::$member->gurdian_name = $request->gurdian_name;
         self::$member->gurdian_voter_id = $request->gurdian_voter_id;
@@ -86,8 +84,8 @@ class Member extends Model
 
     }
 
-    public static function deleteMember($member){
-        self::$member = Member::find($member->id);
+    public static function deleteMember($id){
+        self::$member = Member::find($id);
         if(file_exists(self::$member->member_image)){
             unlink(self::$member->member_image);
         }

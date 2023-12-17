@@ -35,8 +35,8 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Members</a></li>
-                        <li><a href="{{route('member.create')}}" class="slide-item">Add New Member</a></li>
-                        <li><a href="{{route('member.index')}}" class="slide-item">Manage Members</a></li>
+                        <li><a href="{{route('member.add')}}" class="slide-item">Add New Member</a></li>
+                        <li><a href="{{route('member.manage')}}" class="slide-item">Manage Members</a></li>
                         <li><a href="#" class="slide-item">Deposits</a></li>
                         <li><a href="#" class="slide-item">Documents</a></li>
                         <li><a href="#" class="slide-item">Seat Alocation</a></li>

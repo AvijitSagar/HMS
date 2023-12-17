@@ -69,7 +69,7 @@
                                                         <td>{{ $member->member_mobile }}</td>
                                                         <td>{{ $member->member_email }}</td>
                                                         <td>
-                                                            <img src="{{ $member->member_image }}" alt="member-image" height="50px" width="50px">
+                                                            <img src="{{asset($member->member_image)}}" alt="member-image" height="50px" width="50px">
                                                         </td>
                                                         <td>{{ $member->gurdian_name }}</td>
                                                         <td>{{ $member->gurdian_mobile }}</td>
@@ -80,15 +80,14 @@
                                                         <td>{{ $member->status == 1 ? 'Active' : 'Inactive' }}</td>
                                                         <td>
                                                             <div class="d-flex">
-                                                                <a href="{{ route('member.edit', $member->id) }}"
+                                                                <a href="{{ route('member.edit', [$member->id]) }}"
                                                                     class="btn btn-success">
                                                                     <i class="fe fe-edit"></i>
                                                                 </a>
                                                                 &nbsp;&nbsp;
-                                                                <form action="{{ route('member.destroy', $member->id) }}"
+                                                                <form action="{{ route('member.delete', [$member->id]) }}"
                                                                     method="POST">
                                                                     @csrf
-                                                                    @method('DELETE')
                                                                     <button type="submit" class="btn btn-danger">
                                                                         <i class="fe fe-trash"></i>
                                                                     </button>

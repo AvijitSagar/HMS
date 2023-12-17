@@ -30,5 +30,11 @@ Route::middleware([
 
     Route::get('/', [BackendController::class, 'index'])->name('dashboard');
     
-    Route::resource('member', MemberController::class);
+    // Route::resource('member', MemberController::class);
+    Route::get('/member/add', [MemberController::class, 'addMember'])->name('member.add');
+    Route::post('/member/add', [MemberController::class, 'storeMember'])->name('member.store');
+    Route::get('/member/manage', [MemberController::class, 'manageMember'])->name('member.manage');
+    Route::get('/member/{id}/edit', [MemberController::class, 'editMember'])->name('member.edit');
+    Route::post('/member/{id}/update', [MemberController::class, 'updateMember'])->name('member.update');
+    Route::post('/member/{id}/delete', [MemberController::class, 'deleteMember'])->name('member.delete');
 });
