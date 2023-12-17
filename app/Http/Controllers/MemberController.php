@@ -41,14 +41,4 @@ class MemberController extends Controller
         return back()->with('msg', 'Member deleted successfully');
     }
    
-
-
-    // /**
-    //  * Remove the specified resource from storage.
-    //  */
-    // public function destroy(Member $member)
-    // {
-    //     Member::deleteMember($member);
-    //     return back()->with('msg', 'Member deleted successfully');
-    // }
 }

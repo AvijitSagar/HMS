@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,11 +31,19 @@ Route::middleware([
 
     Route::get('/', [BackendController::class, 'index'])->name('dashboard');
     
-    // Route::resource('member', MemberController::class);
+    // routes for member
     Route::get('/member/add', [MemberController::class, 'addMember'])->name('member.add');
     Route::post('/member/add', [MemberController::class, 'storeMember'])->name('member.store');
     Route::get('/member/manage', [MemberController::class, 'manageMember'])->name('member.manage');
     Route::get('/member/{id}/edit', [MemberController::class, 'editMember'])->name('member.edit');
     Route::post('/member/{id}/update', [MemberController::class, 'updateMember'])->name('member.update');
     Route::post('/member/{id}/delete', [MemberController::class, 'deleteMember'])->name('member.delete');
+
+    // routes for room
+    Route::get('/room/add', [RoomController::class, 'addRoom'])->name('room.add');
+    Route::post('/room/add', [RoomController::class, 'storeRoom'])->name('room.store');
+    Route::get('/room/manage', [RoomController::class, 'manageRoom'])->name('room.manage');
+    Route::get('/room/{id}/edit', [RoomController::class, 'editRoom'])->name('room.edit');
+    Route::post('/room/{id}/update', [RoomController::class, 'updateRoom'])->name('room.update');
+    Route::post('/room/{id}/delete', [RoomController::class, 'deleteRoom'])->name('room.delete');
 });
