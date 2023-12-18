@@ -23,6 +23,7 @@ class Room extends Model
         self::$room->floor = $request->floor;
         self::$room->room = $request->room;
         self::$room->seat = $request->seat;
+        self::$room->status = $request->room_status;
         self::$room->save();
     }
 

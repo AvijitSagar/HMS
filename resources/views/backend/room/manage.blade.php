@@ -43,6 +43,8 @@
                                                     <th class="border-bottom-0">Floor</th>
                                                     <th class="border-bottom-0">Room</th>
                                                     <th class="border-bottom-0">Seat</th>
+                                                    <th class="border-bottom-0">Name</th>
+                                                    <th class="border-bottom-0">Status</th>
                                                     <th class="border-bottom-0">Actions</th>
                                                 </tr>
                                             </thead>
@@ -53,6 +55,8 @@
                                                         <td>{{$room->floor}}</td>
                                                         <td>{{$room->room}}</td>
                                                         <td>{{$room->seat}}</td>
+                                                        <td>{{$room->floor . ' floor, room: ' . $room->room . $room->seat}}</td>
+                                                        <td>{{$room->status == 1 ? 'Active' : 'Inactive'}}</td>
                                                         <td>
                                                             <div class="d-flex">
                                                                 <a href="{{route('room.edit', [$room->id])}}"
