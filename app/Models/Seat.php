@@ -18,6 +18,11 @@ class Seat extends Model
         self::$seat->save();
     }
 
+    public static function deleteAlocatedSeat($id){
+        self::$seat = Seat::find($id);
+        self::$seat->delete();
+    }
+
     // this is because, ekta seat er jonno member ekjon e thakbe. so this is the one to one relationship between member and seat model
     public function member(){
         return $this->belongsTo(Member::class);

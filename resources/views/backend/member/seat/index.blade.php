@@ -102,14 +102,15 @@
                                                                     <td>{{$seatAlocation->room->floor . ' ' . $seatAlocation->room->room . ' ' . $seatAlocation->room->seat}}</td>
                                                                     <td>
                                                                         <div class="d-flex">
-                                                                            <a href=""
+                                                                            <a href="{{route('edit.seat.alocated', [$seatAlocation->id])}}"
                                                                                 class="btn btn-success">
                                                                                 <i class="fe fe-edit"></i>
                                                                             </a>
                                                                             &nbsp;&nbsp;
-                                                                            <form action="" method="POST">
+                                                                            <form action="{{route('delete.seat.alocated', [$seatAlocation->id])}}" method="POST">
                                                                                 @csrf
-                                                                                @method('DELETE')
+                                                                                {{-- room_id ta hidden kore rakha hoyeche jeno SeatController a room er id dhore active status change kora jay --}}
+                                                                                <input type="hidden" name="room_id" value="{{ $seatAlocation->room_id }}">
                                                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Delete seat:  for user:   ?')">
                                                                                     <i class="fe fe-trash"></i>
                                                                                 </button>

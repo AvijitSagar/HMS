@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p class="text-center text-success">{{ Session::get('msg') }}</p>
-                                    <form class="needs-validation" action="{{route('seat.update', $seatAlocations->id)}}" method="POST" novalidate>
+                                    <form class="needs-validation" action="" method="POST" novalidate>
                                         @csrf
                                         @method('PUT')
                                         <h6 class="text-center"><i>Seat INFO</i></h6>
@@ -59,9 +59,9 @@
                                                 <label for="seat_id">Seat</label>
                                                 <select name="seat_id" class="form-control" id="seat_id">
                                                     <option value="" disabled selected>Select Seat</option>
-                                                    @foreach ($seats as $seat)
-                                                        <option value="{{ $seat->id }}" {{$seat->id == $seatAlocations->seat_id ? 'selected' : ''}}>
-                                                            {{ $seat->seat . ' ' . $seat->room }}
+                                                    @foreach ($rooms as $room)
+                                                        <option value="{{ $room->id }}" {{$room->id == $seatAlocations->room_id ? 'selected' : ''}}>
+                                                            {{ $room->seat . ' ' . $room->room }}
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -72,7 +72,7 @@
                                         
                                         <br>
                                         <button type="submit" class="btn btn-primary">Confirm Edit</button>
-                                        <a href="{{route('seat.create')}}">
+                                        <a href="{{route('seat.alocate')}}">
                                             {{-- <button class="btn btn-danger">Cancel</button> --}}
                                             <input type="button" class="btn btn-danger" value="cancel">
                                         </a>

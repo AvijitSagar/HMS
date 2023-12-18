@@ -22,4 +22,18 @@ class SeatController extends Controller
         Room::where('id', $request->room_id)->update(['status' => 0]);
         return back()->with('msg', 'Seat alocated successfully...!');
     }
+
+    public function editAlocatedSeat(string $id){
+        return view('backend.member.seat.edit', [
+            'members' => Member::all(),
+            'rooms' => Room::all(),
+            'seatAlocations' => Seat::find($id)
+        ]);
+    }
+
+    public function deleteAlocatedSeat(Request $request, $id){
+        Seat::deleteAlocatedSeat($id);
+        Room::where('id', $request->room_id)->update(['status' => 1]);
+        return back()->with('msg', 'Seat unallocated from the member successfully...!');
+    }
 }

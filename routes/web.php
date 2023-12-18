@@ -51,4 +51,6 @@ Route::middleware([
     // routes for seat
     Route::get('/seat/add', [SeatController::class, 'alocateSeat'])->name('seat.alocate');
     Route::post('/seat/add', [SeatController::class, 'storeAlocatedSeat'])->name('store.seat.alocated');
+    Route::get('/seat/{id}/edit', [SeatController::class, 'editAlocatedSeat'])->name('edit.seat.alocated');
+    Route::post('/seat/{id}/delete', [SeatController::class, 'deleteAlocatedSeat'])->name('delete.seat.alocated');
 });
