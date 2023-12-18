@@ -12,13 +12,14 @@ class SeatController extends Controller
     public function alocateSeat(){
         return view('backend.member.seat.index', [
             'members' => Member::all(),
-            'rooms' => Room::all(),
+            'rooms' => Room::where('status', 1)->get(),
             'seatAlocations' => Seat::all()
         ]);
     }
 
     public function storeAlocatedSeat(Request $request){
         Seat::alocateSeat($request);
+        Room::where('id', $request->room_id)->update(['status' => 0]);
         return back()->with('msg', 'Seat alocated successfully...!');
     }
 }

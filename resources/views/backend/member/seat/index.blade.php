@@ -47,11 +47,13 @@
                                                     <option value="" disabled selected>Select Member</option>
                                                     @foreach ($members as $member)
                                                         @php
+                                                            $allocation = $seatAlocations->where('member_id', $member->id)->first();
                                                             $alreadyAllocated = $seatAlocations->where('member_id', $member->id)->isNotEmpty();
                                                         @endphp
                                                         <option value="{{ $member->id }}" {{ $alreadyAllocated ? 'disabled' : '' }}>
                                                             {{ $member->member_first_name . ' ' . $member->member_last_name }}
-                                                            {{ $alreadyAllocated ? '(Already Allocated)' : '' }}
+                                                            {{-- {{ $alreadyAllocated ? ' Allocated to ' . $seatAlocations->where('member_id', $member->id)->first()->room_name : '' }} --}}
+                                                            {{ $alreadyAllocated ? '-> ' . $allocation->room->floor . ' ' . $allocation->room->room . ' ' . $allocation->room->seat : '' }}
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -61,13 +63,8 @@
                                                 <select name="room_id" class="form-control" id="room_id">
                                                     <option value="" disabled selected>Select Seat</option>
                                                     @foreach ($rooms as $room)
-                                                        @php
-                                                            $allocation = $seatAlocations->where('room_id', $room->id)->first();
-                                                            $alreadyAllocated = $seatAlocations->where('room_id', $room->id)->isNotEmpty();
-                                                        @endphp
-                                                        <option value="{{ $room->id }}" {{ $alreadyAllocated ? 'disabled' : '' }}>
+                                                        <option value="{{ $room->id }}">
                                                             {{ $room->seat . ' ' . $room->room }}
-                                                            {{ $alreadyAllocated ? '(Already Allocated to ' . $allocation->member->member_first_name . ' ' . $allocation->member->member_last_name . ')' : '' }}
                                                         </option>
                                                     @endforeach
                                                 </select>
