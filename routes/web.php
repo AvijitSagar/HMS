@@ -3,6 +3,7 @@
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\SeatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,4 +47,8 @@ Route::middleware([
     Route::get('/room/{id}/edit', [RoomController::class, 'editRoom'])->name('room.edit');
     Route::post('/room/{id}/update', [RoomController::class, 'updateRoom'])->name('room.update');
     Route::post('/room/{id}/delete', [RoomController::class, 'deleteRoom'])->name('room.delete');
+
+    // routes for seat
+    Route::get('/seat/add', [SeatController::class, 'alocateSeat'])->name('seat.alocate');
+    Route::post('/seat/add', [SeatController::class, 'storeAlocatedSeat'])->name('store.seat.alocated');
 });

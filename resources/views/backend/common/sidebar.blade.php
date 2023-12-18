@@ -39,7 +39,7 @@
                         <li><a href="{{route('member.manage')}}" class="slide-item">Manage Members</a></li>
                         <li><a href="#" class="slide-item">Deposits</a></li>
                         <li><a href="#" class="slide-item">Documents</a></li>
-                        <li><a href="#" class="slide-item">Seat Alocation</a></li>
+                        <li><a href="{{route('seat.alocate')}}" class="slide-item">Seat Alocation</a></li>
                     </ul>
                 </li>
                 <li class="slide">
