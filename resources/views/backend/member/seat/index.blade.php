@@ -91,6 +91,7 @@
                                                                 <th class="border-bottom-0">SL</th>
                                                                 <th class="border-bottom-0">member</th>
                                                                 <th class="border-bottom-0">Seat</th>
+                                                                <th class="border-bottom-0">Seat rent</th>
                                                                 <th class="border-bottom-0">Actions</th>
                                                             </tr>
                                                         </thead>
@@ -100,6 +101,7 @@
                                                                     <td>{{$loop->iteration}}</td>
                                                                     <td>{{$seatAlocation->member->member_first_name . ' ' . $seatAlocation->member->member_last_name}}</td>
                                                                     <td>{{$seatAlocation->room->floor . ' ' . $seatAlocation->room->room . ' ' . $seatAlocation->room->seat}}</td>
+                                                                    <td>{{$seatAlocation->room->seat_rent}} &#2547;</td>
                                                                     <td>
                                                                         <div class="d-flex">
                                                                             <a href="{{route('edit.seat.alocated', [$seatAlocation->id])}}"
