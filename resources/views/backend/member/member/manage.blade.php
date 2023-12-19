@@ -41,18 +41,8 @@
                                                 <tr>
                                                     <th class="border-bottom-0">SL</th>
                                                     <th class="border-bottom-0">Name</th>
-                                                    {{-- <th class="border-bottom-0">Last Name</th> --}}
-                                                    <th class="border-bottom-0">Institute</th>
-                                                    <th class="border-bottom-0">Voter ID</th>
                                                     <th class="border-bottom-0">Mobile</th>
                                                     <th class="border-bottom-0">Email</th>
-                                                    <th class="border-bottom-0">Image</th>
-                                                    <th class="border-bottom-0">Gurdian Name</th>
-                                                    <th class="border-bottom-0">Gurdian Mobile</th>
-                                                    <th class="border-bottom-0">Gurdian Email</th>
-                                                    <th class="border-bottom-0">Local Gurdian Name</th>
-                                                    <th class="border-bottom-0">Local Gurdian Mobile</th>
-                                                    <th class="border-bottom-0">Local Gurdian Email</th>
                                                     <th class="border-bottom-0">Status</th>
                                                     <th class="border-bottom-0">Actions</th>
                                                 </tr>
@@ -61,27 +51,19 @@
                                                 @foreach ($members as $member)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $member->member_first_name . ' ' . $member->member_last_name }}
-                                                        </td>
-                                                        {{-- <td>{{$member->member_last_name}}</td> --}}
-                                                        <td>{{ $member->member_institute }}</td>
-                                                        <td>{{ $member->member_voter_id }}</td>
+                                                        <td>{{ $member->member_first_name . ' ' . $member->member_last_name }}</td>
                                                         <td>{{ $member->member_mobile }}</td>
                                                         <td>{{ $member->member_email }}</td>
-                                                        <td>
-                                                            <img src="{{asset($member->member_image)}}" alt="member-image" height="50px" width="50px">
-                                                        </td>
-                                                        <td>{{ $member->gurdian_name }}</td>
-                                                        <td>{{ $member->gurdian_mobile }}</td>
-                                                        <td>{{ $member->gurdian_email }}</td>
-                                                        <td>{{ $member->local_gurdian_name }}</td>
-                                                        <td>{{ $member->local_gurdian_mobile }}</td>
-                                                        <td>{{ $member->local_gurdian_address }}</td>
                                                         <td>{{ $member->status == 1 ? 'Active' : 'Inactive' }}</td>
                                                         <td>
                                                             <div class="d-flex">
-                                                                <a href="{{ route('member.edit', [$member->id]) }}"
+                                                                <a href="{{ route('member.show', [$member->id]) }}"
                                                                     class="btn btn-success">
+                                                                    <i class="fe fe-book-open"></i>
+                                                                </a>
+                                                                &nbsp;&nbsp;
+                                                                <a href="{{ route('member.edit', [$member->id]) }}"
+                                                                    class="btn btn-warning">
                                                                     <i class="fe fe-edit"></i>
                                                                 </a>
                                                                 &nbsp;&nbsp;

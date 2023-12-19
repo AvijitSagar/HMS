@@ -36,6 +36,7 @@ Route::middleware([
     Route::get('/member/add', [MemberController::class, 'addMember'])->name('member.add');
     Route::post('/member/add', [MemberController::class, 'storeMember'])->name('member.store');
     Route::get('/member/manage', [MemberController::class, 'manageMember'])->name('member.manage');
+    Route::get('/member/{id}/show', [MemberController::class, 'showMember'])->name('member.show');
     Route::get('/member/{id}/edit', [MemberController::class, 'editMember'])->name('member.edit');
     Route::post('/member/{id}/update', [MemberController::class, 'updateMember'])->name('member.update');
     Route::post('/member/{id}/delete', [MemberController::class, 'deleteMember'])->name('member.delete');

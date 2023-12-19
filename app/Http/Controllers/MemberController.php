@@ -23,6 +23,12 @@ class MemberController extends Controller
         ]);
     }
 
+    public function showMember(string $id){
+        return view('backend.member.member.show', [
+            'member' => Member::find($id)
+        ]);
+    }
+
     public function editMember(string $id){
         return view('backend.member.member.edit', [
             'member' => Member::find($id)
