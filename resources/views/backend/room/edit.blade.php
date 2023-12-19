@@ -59,6 +59,13 @@
                                                     id="seat" value="{{$room->seat}}">
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                                                <label for="seat_rent">Seat rent</label>
+                                                <input name="seat_rent" type="number" class="form-control"
+                                                    id="seat_rent" value="{{$room->seat_rent}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
                                                 <label for="seat">Status</label>
                                                 <select name="room_status" class="form-control" id="room_status">
                                                         <option value="1" {{$room->status == 1 ? 'selected' : ''}}>Active</option>

@@ -44,6 +44,7 @@
                                                     <th class="border-bottom-0">Room</th>
                                                     <th class="border-bottom-0">Seat</th>
                                                     <th class="border-bottom-0">Name</th>
+                                                    <th class="border-bottom-0">Seat rent</th>
                                                     <th class="border-bottom-0">Status</th>
                                                     <th class="border-bottom-0">Actions</th>
                                                 </tr>
@@ -56,7 +57,8 @@
                                                         <td>{{$room->room}}</td>
                                                         <td>{{$room->seat}}</td>
                                                         <td>{{$room->floor . ' floor, room: ' . $room->room . $room->seat}}</td>
-                                                        <td>{{$room->status == 1 ? 'Active' : 'Inactive'}}</td>
+                                                        <td>{{$room->seat_rent}} &#2547;</td>
+                                                        <td class="{{$room->status == 1 ? 'text-success' : 'text-danger'}}">{{$room->status == 1 ? 'Available' : 'Booked'}}</td>
                                                         <td>
                                                             <div class="d-flex">
                                                                 <a href="{{route('room.edit', [$room->id])}}"

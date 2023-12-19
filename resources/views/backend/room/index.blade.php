@@ -58,6 +58,11 @@
                                                 <input name="seat" type="text" class="form-control"
                                                     id="seat" required>
                                             </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                                                <label for="seat_rent">Seat rent</label>
+                                                <input name="seat_rent" type="number" class="form-control"
+                                                    id="seat_rent" required>
+                                            </div>
                                         </div>
 
                                         <br>
