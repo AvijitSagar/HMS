@@ -56,7 +56,7 @@
                                                         <td>{{$room->floor}}</td>
                                                         <td>{{$room->room}}</td>
                                                         <td>{{$room->seat}}</td>
-                                                        <td>{{$room->floor . ' floor, room: ' . $room->room . $room->seat}}</td>
+                                                        <td class="text-primary">{{$room->floor . $room->room . $room->seat}}</td>
                                                         <td>{{$room->seat_rent}} &#2547;</td>
                                                         <td class="{{$room->status == 1 ? 'text-success' : 'text-danger'}}">{{$room->status == 1 ? 'Available' : 'Booked'}}</td>
                                                         <td>

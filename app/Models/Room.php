@@ -25,7 +25,7 @@ class Room extends Model
         self::$room->room = $request->room;
         self::$room->seat = $request->seat;
         self::$room->seat_rent = $request->seat_rent;
-        self::$room->status = $request->room_status;
+        // self::$room->status = $request->room_status;
         self::$room->save();
     }
 
