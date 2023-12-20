@@ -91,4 +91,10 @@ class Member extends Model
         }
         self::$member->delete();
     }
+
+    // member wise allocated seat ebong seat rent dekhanor jonno one to one relattion
+    //karon,  each member is associated with one seat, and each seat belongs to one member.
+    public function seat(){
+        return $this->hasOne(Seat::class);
+    }
 }

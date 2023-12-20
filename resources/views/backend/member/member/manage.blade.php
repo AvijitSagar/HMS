@@ -43,6 +43,8 @@
                                                     <th class="border-bottom-0">Name</th>
                                                     <th class="border-bottom-0">Mobile</th>
                                                     <th class="border-bottom-0">Email</th>
+                                                    <th class="border-bottom-0">Seat</th>
+                                                    <th class="border-bottom-0">Seat rent</th>
                                                     <th class="border-bottom-0">Status</th>
                                                     <th class="border-bottom-0">Actions</th>
                                                 </tr>
@@ -54,7 +56,16 @@
                                                         <td>{{ $member->member_first_name . ' ' . $member->member_last_name }}</td>
                                                         <td>{{ $member->member_mobile }}</td>
                                                         <td>{{ $member->member_email }}</td>
-                                                        <td>{{ $member->status == 1 ? 'Active' : 'Inactive' }}</td>
+                                                        {{-- member model a seat model er sathe one to one relation kora ache --}}
+                                                        <td class="{{$member->seat ? '' : 'text-danger'}}">
+                                                            {{ $member->seat ? $member->seat->room->floor . ' ' . $member->seat->room->room . ' ' . $member->seat->room->seat : 'Not allocated' }}
+                                                        </td>
+                                                        <td class="{{$member->seat ? '' : 'text-danger'}}">
+                                                            {{ $member->seat && $member->seat->room->seat_rent ? $member->seat->room->seat_rent : 'N/A' }} &#2547;
+                                                        </td>
+                                                        <td class="{{$member->status == 1 ? 'text-success' : 'text-danger'}}">
+                                                            {{ $member->status == 1 ? 'Active' : 'Inactive' }}
+                                                        </td>
                                                         <td>
                                                             <div class="d-flex">
                                                                 <a href="{{ route('member.show', [$member->id]) }}"
