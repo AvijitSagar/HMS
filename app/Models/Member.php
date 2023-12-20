@@ -12,11 +12,15 @@ class Member extends Model
     private static $member, $image, $imageName, $directory;
 
     public static function imageUpload($request){
-        self::$image = $request->file('member_image');
-        self::$imageName = self::$image->getClientOriginalName();
-        self::$directory = 'uploads/member-image/';
-        self::$image->move(self::$directory, self::$imageName);
-        return self::$directory . self::$imageName;
+        if ($request->hasFile('member_image')) {
+            self::$image = $request->file('member_image');
+            self::$imageName = self::$image->getClientOriginalName();
+            self::$directory = 'uploads/member-image/';
+            self::$image->move(self::$directory, self::$imageName);
+            return self::$directory . self::$imageName;
+        } else {
+            return 'No file uploaded.';
+        }
     }
 
     public static function newMember($request){
