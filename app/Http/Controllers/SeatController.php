@@ -18,6 +18,13 @@ class SeatController extends Controller
     }
 
     public function storeAlocatedSeat(Request $request){
+        $this->validate($request, [
+            'member_id' => 'required',
+            'room_id'   => 'required'
+        ], [
+            'member_id.required'    => 'Please select a member',
+            'room_id.required'      => 'Please select a room'
+        ]);
         Seat::alocateSeat($request);
         Room::where('id', $request->room_id)->update(['status' => 0]);
         return back()->with('msg', 'Seat alocated successfully...!');

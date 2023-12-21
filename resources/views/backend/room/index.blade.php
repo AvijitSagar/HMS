@@ -42,24 +42,24 @@
                                         <br><br>
                                         <div class="form-row">
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="floor">Floor</label>
+                                                <label for="floor">Floor</label> <span class="text-danger"><b>*</b></span>
                                                 <input name="floor" type="text" class="form-control" id="floor" value="" required>
                                                 <p class="text-danger pt-2">{{$errors->has('floor') ? $errors->first('floor') : ''}}</p>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="room">Room</label>
+                                                <label for="room">Room</label> <span class="text-danger"><b>*</b></span>
                                                 <input name="room" type="text" class="form-control" id="room" value="" required>
                                                 <p class="text-danger pt-2">{{$errors->has('room') ? $errors->first('room') : ''}}</p>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="seat">Seat</label>
+                                                <label for="seat">Seat</label> <span class="text-danger"><b>*</b></span>
                                                 <input name="seat" type="text" class="form-control" id="seat" required>
                                                 <p class="text-danger pt-2">{{$errors->has('seat') ? $errors->first('seat') : ''}}</p>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="seat_rent">Seat rent</label>
+                                                <label for="seat_rent">Seat rent</label> <span class="text-danger"><b>*</b></span>
                                                 <input name="seat_rent" type="number" class="form-control" id="seat_rent" required>
                                                 <p class="text-danger pt-2">{{$errors->has('seat_rent') ? $errors->first('seat_rent') : ''}}</p>
                                             </div>

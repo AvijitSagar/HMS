@@ -42,7 +42,7 @@
                                         <br><br>
                                         <div class="form-row">
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="member_id">Name</label>
+                                                <label for="member_id">Available member</label>  <span class="text-danger"><b>*</b></span>
                                                 <select name="member_id" class="form-control" id="member_id">
                                                     <option value="" disabled selected>Select Member</option>
                                                     @foreach ($members as $member)
@@ -57,9 +57,10 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
+                                                <p class="text-danger pt-2">{{$errors->has('member_id') ? $errors->first('member_id') : ''}}</p>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="room_id">Seat</label>
+                                                <label for="room_id">Available seat</label> <span class="text-danger"><b>*</b></span>
                                                 <select name="room_id" class="form-control" id="room_id">
                                                     <option value="" disabled selected>Select Seat</option>
                                                     @foreach ($rooms as $room)
@@ -68,6 +69,7 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
+                                                <p class="text-danger pt-2">{{$errors->has('room_id') ? $errors->first('room_id') : ''}}</p>
                                             </div>
                                         </div>
                                         
