@@ -33,4 +33,28 @@ class Employee extends Model
         self::$employee->employee_image = self::imageUpload($request);
         self::$employee->save();
     }
+
+    public static function updateEmployee($request, $id){
+        self::$employee = Employee::find($id);
+        self::$employee->employee_name = $request->employee_name;
+        self::$employee->working_area = $request->working_area;
+        self::$employee->employee_mobile = $request->employee_mobile;
+        self::$employee->employee_voter_id = $request->employee_voter_id;
+        self::$employee->employee_address = $request->employee_address;
+        if($request->file('employee_image')){
+            if(file_exists(self::$employee->employee_image)){
+                unlink(self::$employee->employee_image);
+            }
+            self::$employee->employee_image = self::imageUpload($request);
+        }
+        self::$employee->save();
+    }
+
+    public static function deleteEmployee($id){
+        self::$employee = Employee::find($id);
+        if(file_exists(self::$employee->employee_image)){
+            unlink(self::$employee->employee_image);
+        }
+        self::$employee->delete();
+    }
 }

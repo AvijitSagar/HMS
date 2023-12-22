@@ -67,20 +67,20 @@
                                                         </td>
                                                         <td>
                                                             <div class="d-flex">
-                                                                <a href="{{route('Employee.show', [$employee->id])}}"
+                                                                <a href="{{route('employee.show', [$employee->id])}}"
                                                                     class="btn btn-success">
                                                                     <i class="fe fe-book-open"></i>
                                                                 </a>
                                                                 &nbsp;&nbsp;
-                                                                <a href=""
+                                                                <a href="{{route('employee.edit', [$employee->id])}}"
                                                                     class="btn btn-warning">
                                                                     <i class="fe fe-edit"></i>
                                                                 </a>
                                                                 &nbsp;&nbsp;
-                                                                <form action=""
+                                                                <form action="{{route('employee.delete', [$employee->id])}}"
                                                                     method="POST">
                                                                     @csrf
-                                                                    <button type="submit" class="btn btn-danger">
+                                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Delete employee {{$employee->employee_name}} ?')">
                                                                         <i class="fe fe-trash"></i>
                                                                     </button>
                                                                 </form>

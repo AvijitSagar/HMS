@@ -69,5 +69,8 @@ Route::middleware([
     Route::get('/employee/add', [EmployeeController::class, 'addEmployee'])->name('employee.add');
     Route::post('/employee/add', [EmployeeController::class, 'storeEmployee'])->name('employee.store');
     Route::get('/employee/manage', [EmployeeController::class, 'manageEmployee'])->name('employee.manage');
-    Route::get('/employee/{id}/show', [EmployeeController::class, 'showEmployee'])->name('Employee.show');
+    Route::get('/employee/{id}/show', [EmployeeController::class, 'showEmployee'])->name('employee.show');
+    Route::get('/employee/{id}/edit', [EmployeeController::class, 'editEmployee'])->name('employee.edit');
+    Route::post('/employee/{id}/update', [EmployeeController::class, 'updateEmployee'])->name('employee.update');
+    Route::post('/employee/{id}/delete', [EmployeeController::class, 'deleteEmployee'])->name('employee.delete');
 });

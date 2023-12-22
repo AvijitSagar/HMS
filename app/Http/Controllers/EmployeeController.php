@@ -27,4 +27,20 @@ class EmployeeController extends Controller
             'employee' => Employee::find($id)
         ]);
     }
+
+    public function editEmployee(string $id){
+        return view('backend.employee.employee.edit', [
+            'employee' => Employee::find($id)
+        ]);
+    }
+
+    public function updateEmployee(Request $request, string $id){
+        Employee::updateEmployee($request, $id);
+        return redirect(route('employee.manage'))->with('msg', 'Employee updated successfully...!');
+    }
+
+    public function deleteEmployee(string $id){
+        Employee::deleteEmployee($id);
+        return back()->with('msg', 'Employee deleted successfully...!');
+    }
 }
