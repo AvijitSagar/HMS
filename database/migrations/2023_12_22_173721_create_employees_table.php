@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('employee_voter_id');
             $table->longText('employee_address');
             $table->text('employee_image');
-            $table->tinyInteger('active')->default(1)->comment('0=Inactive, 1=Active');
+            $table->tinyInteger('status')->default(1)->comment('0=Inactive, 1=Active');
             $table->timestamps();
         });
     }

@@ -15,4 +15,16 @@ class EmployeeController extends Controller
         Employee::newEmployee($request);
         return back()->with('msg', 'Employee added successfully...!');
     }
+
+    public function manageEmployee(){
+        return view('backend.employee.employee.manage', [
+            'employees' => Employee::all()
+        ]);
+    }
+
+    public function showEmployee(string $id){
+        return view('backend.employee.employee.show', [
+            'employee' => Employee::find($id)
+        ]);
+    }
 }

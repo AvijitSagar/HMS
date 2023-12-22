@@ -68,4 +68,6 @@ Route::middleware([
     //routes for employee
     Route::get('/employee/add', [EmployeeController::class, 'addEmployee'])->name('employee.add');
     Route::post('/employee/add', [EmployeeController::class, 'storeEmployee'])->name('employee.store');
+    Route::get('/employee/manage', [EmployeeController::class, 'manageEmployee'])->name('employee.manage');
+    Route::get('/employee/{id}/show', [EmployeeController::class, 'showEmployee'])->name('Employee.show');
 });

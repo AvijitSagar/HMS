@@ -77,7 +77,7 @@
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Employee</a></li>
                         <li><a href="{{route('employee.add')}}" class="slide-item">Add New Employee</a></li>
-                        <li><a href="#" class="slide-item">Manage Employee</a></li>
+                        <li><a href="{{route('employee.manage')}}" class="slide-item">Manage Employee</a></li>
                         <li><a href="#" class="slide-item">Salary</a></li>
                     </ul>
                 </li>
