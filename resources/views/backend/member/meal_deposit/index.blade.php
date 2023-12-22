@@ -42,12 +42,12 @@
                                         <br><br>
                                         <div class="form-row">
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="datepicker-date">Select Date</label> <span class="text-danger"><b>*</b></span>
+                                                <label for="bootstrapDatePicker1">Date</label>  <span class="text-danger"><b>*</b></span>
                                                 <div class="input-group">
-                                                    <div class="input-group-text bg-primary-transparent text-primary">
-                                                        <i class="fe fe-calendar text-20"></i>
+                                                    <div id="datePickerStyle1" class="input-group date" data-date-format="dd-mm-yyyy">
+                                                        <span class="input-group-addon input-group-text bg-primary-transparent"><i class="fe fe-calendar text-primary-dark"></i></span>
+                                                        <input class="form-control" disabled id="bootstrapDatePicker1" type="text"/>
                                                     </div>
-                                                    <input class="form-control" id="datepicker-date" placeholder="MM/DD/YYYY" type="text">
                                                 </div>
                                                 <p class="text-danger pt-2">{{$errors->has('member_id') ? $errors->first('member_id') : ''}}</p>
                                             </div>
@@ -64,7 +64,7 @@
                                         <div class="form-row">
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
                                                 <label for="room">Room</label>
-                                                <input name="room" type="text" class="form-control" id="room" value="" required>
+                                                <input name="room" disabled type="text" class="form-control" id="room" value="" required>
                                                 <p class="text-danger pt-2">{{$errors->has('room') ? $errors->first('room') : ''}}</p>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">

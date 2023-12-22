@@ -1050,6 +1050,9 @@
     <!-- Bootstrap-Date Range Picker js-->
     <script src="{{ asset('/') }}backend/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
 
+    <!-- bootstrap-datepicker js (Date picker Style-01) -->
+    <script src="{{ asset('/') }}backend/assets/plugins/bootstrap-datepicker/js/datepicker.js"></script>
+
     <!-- FORM ELEMENTS JS -->
     <script src="{{ asset('/') }}backend/assets/js/formelementadvnced.js"></script>
 
