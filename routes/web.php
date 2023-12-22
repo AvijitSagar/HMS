@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BackendController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\MealDepositController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\RoomController;
@@ -63,4 +64,8 @@ Route::middleware([
     Route::get('/edit/deposit/{id}/meal', [MealDepositController::class, 'editMealDeposit'])->name('mealDeposit.edit');
     Route::post('/update/deposit/{id}/meal', [MealDepositController::class, 'updateMealDeposit'])->name('mealDeposit.update');
     Route::post('/delete/deposit/{id}/meal', [MealDepositController::class, 'deleteMealDeposit'])->name('mealDeposit.delete');
+
+    //routes for employee
+    Route::get('/employee/add', [EmployeeController::class, 'addEmployee'])->name('employee.add');
+    Route::post('/employee/add', [EmployeeController::class, 'storeEmployee'])->name('employee.store');
 });
