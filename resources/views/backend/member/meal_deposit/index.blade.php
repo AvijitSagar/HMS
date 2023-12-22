@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p class="text-center text-success">{{ Session::get('msg') }}</p>
-                                    <form class="needs-validation" novalidate action="{{route('room.add')}}" method="POST">
+                                    <form class="needs-validation" novalidate action="{{route('mealDeposit.store')}}" method="POST">
                                         @csrf
                                         <h6 class="text-center"><i>Meal Deposit INFO</i></h6>
                                         <br><br>
@@ -46,18 +46,20 @@
                                                 <div class="input-group">
                                                     <div id="datePickerStyle1" class="input-group date" data-date-format="dd-mm-yyyy">
                                                         <span class="input-group-addon input-group-text bg-primary-transparent"><i class="fe fe-calendar text-primary-dark"></i></span>
-                                                        <input class="form-control" disabled id="bootstrapDatePicker1" type="text"/>
+                                                        <input class="form-control" name="deposit_date" id="bootstrapDatePicker1" type="text"/>
                                                     </div>
                                                 </div>
-                                                <p class="text-danger pt-2">{{$errors->has('member_id') ? $errors->first('member_id') : ''}}</p>
+                                                {{-- <p class="text-danger pt-2">{{$errors->has('member_id') ? $errors->first('member_id') : ''}}</p> --}}
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
                                                 <label for="member_id">Member</label>  <span class="text-danger"><b>*</b></span>
                                                 <select name="member_id" class="form-control" id="member_id">
                                                     <option value="" disabled selected>Select Member</option>
-                                                        <option value="" >
-                                                            Sagar
-                                                        </option>
+                                                        @foreach ($members as $member)
+                                                            <option value="{{$member->id}}" >
+                                                                {{ $member->member_first_name . ' ' . $member->member_last_name }}
+                                                            </option>
+                                                        @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -139,4 +141,3 @@
             </div>
     </section>
 @endsection
-b

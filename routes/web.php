@@ -59,4 +59,5 @@ Route::middleware([
 
     // routes for meal deposit
     Route::get('/deposit/meal', [MealDepositController::class, 'addMealDeposit'])->name('mealDeposit.add');
+    Route::post('/deposit/meal', [MealDepositController::class, 'storeMealDeposit'])->name('mealDeposit.store');
 });

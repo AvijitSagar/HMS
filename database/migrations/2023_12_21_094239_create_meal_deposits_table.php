@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('meal_deposits', function (Blueprint $table) {
             $table->id();
+            $table->integer('member_id');
+            $table->string('deposit_date');
+            $table->integer('deposit_amount');
             $table->timestamps();
         });
     }
