@@ -47,9 +47,9 @@
                                                     <div id="datePickerStyle1" class="input-group date" data-date-format="dd-mm-yyyy">
                                                         <span class="input-group-addon input-group-text bg-primary-transparent"><i class="fe fe-calendar text-primary-dark"></i></span>
                                                         <input class="form-control" value="{{$mealDeposit->deposit_date}}" name="deposit_date" id="bootstrapDatePicker1" type="text"/>
+                                                        <p class="text-danger pt-2">{{$errors->has('deposit_date') ? $errors->first('deposit_date') : ''}}</p>
                                                     </div>
                                                 </div>
-                                                {{-- <p class="text-danger pt-2">{{$errors->has('member_id') ? $errors->first('member_id') : ''}}</p> --}}
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
                                                 <label for="member_id">Member</label>  <span class="text-danger"><b>*</b></span>
@@ -61,6 +61,7 @@
                                                             </option>
                                                         @endforeach
                                                 </select>
+                                                <p class="text-danger pt-2">{{$errors->has('member_id') ? $errors->first('member_id') : ''}}</p>
                                             </div>
                                         </div>
                                         <div class="form-row">

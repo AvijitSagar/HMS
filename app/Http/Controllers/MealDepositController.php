@@ -17,6 +17,16 @@ class MealDepositController extends Controller
     }
 
     public function storeMealDeposit(Request $request){
+        $this->validate($request, [
+            'deposit_date'      => 'required|date_format:d-m-Y',
+            'member_id'         => 'required',
+            'deposit_amount'    =>'required|numeric'
+        ], [
+            'deposit_date.required'     => 'Please select the date',
+            'deposit_date.date_format'  => 'Please input a valid date format',
+            'deposit_amount.required'   => 'Amount field is required',
+            'deposit_amount.numeric'    => 'Amount field can only contain integer'
+        ]);
         MealDeposit::newMealDeposit($request);
         return back()->with('msg', 'Meal deposit added successfully...!');
     }
@@ -29,6 +39,16 @@ class MealDepositController extends Controller
     }
 
     public function updateMealDeposit(Request $request, string $id){
+        $this->validate($request, [
+            'deposit_date'      => 'required|date_format:d-m-Y',
+            'member_id'         => 'required',
+            'deposit_amount'    =>'required|numeric'
+        ], [
+            'deposit_date.required'     => 'Please select the date',
+            'deposit_date.date_format'  => 'Please input a valid date format',
+            'deposit_amount.required'   => 'Amount field is required',
+            'deposit_amount.numeric'    => 'Amount field can only contain integer'
+        ]);
         MealDeposit::updateMealDeposit($request, $id);
         return redirect(route('mealDeposit.add'))->with('msg', 'Meal deposit updated successfully...!');
     }
