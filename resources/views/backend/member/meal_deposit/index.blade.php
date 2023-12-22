@@ -96,37 +96,37 @@
                                                         <tr>
                                                             <th class="border-bottom-0">SL</th>
                                                             <th class="border-bottom-0">Member</th>
-                                                            <th class="border-bottom-0">Seat</th>
-                                                            <th class="border-bottom-0">Meal Deposit</th>
+                                                            {{-- <th class="border-bottom-0">Seat</th> --}}
+                                                            <th class="border-bottom-0">Deposit Amount</th>
                                                             <th class="border-bottom-0">Deposit date</th>
                                                             <th class="border-bottom-0">Actions</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        {{-- @foreach ($seatAlocations as $seatAlocation) --}}
+                                                        @foreach ($mealDeposits as $mealDeposit)
                                                             <tr>
-                                                                <td>1</td>
-                                                                <td>Sagar Biswas</td>
-                                                                <td>13b</td>
-                                                                <td>1000 &#2547;</td>
-                                                                <td>16 dec 2023</td>
+                                                                <td>{{$loop->iteration}}</td>
+                                                                <td>{{$mealDeposit->member->member_first_name . ' ' . $mealDeposit->member->member_last_name}}</td>
+                                                                {{-- <td>13b</td> --}}
+                                                                <td>{{$mealDeposit->deposit_amount}} &#2547;</td>
+                                                                <td>{{$mealDeposit->deposit_date}}</td>
                                                                 <td>
                                                                     <div class="d-flex">
-                                                                        <a href=""
+                                                                        <a href="{{route('mealDeposit.edit', [$mealDeposit->id])}}"
                                                                             class="btn btn-success">
                                                                             <i class="fe fe-edit"></i>
                                                                         </a>
                                                                         &nbsp;&nbsp;
-                                                                        <form action="" method="POST">
+                                                                        <form action="{{route('mealDeposit.delete', [$mealDeposit->id])}}" method="POST">
                                                                             @csrf
-                                                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Delete seat:  for user:   ?')">
+                                                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Delete seat:  for user: {{$mealDeposit->member->member_first_name . ' ' . $mealDeposit->member->member_last_name}}?')">
                                                                                 <i class="fe fe-trash"></i>
                                                                             </button>
                                                                         </form>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                        {{-- @endforeach --}}
+                                                        @endforeach
         
                                                     </tbody>
                                                 </table>

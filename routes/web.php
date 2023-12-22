@@ -60,4 +60,7 @@ Route::middleware([
     // routes for meal deposit
     Route::get('/deposit/meal', [MealDepositController::class, 'addMealDeposit'])->name('mealDeposit.add');
     Route::post('/deposit/meal', [MealDepositController::class, 'storeMealDeposit'])->name('mealDeposit.store');
+    Route::get('/edit/deposit/{id}/meal', [MealDepositController::class, 'editMealDeposit'])->name('mealDeposit.edit');
+    Route::post('/update/deposit/{id}/meal', [MealDepositController::class, 'updateMealDeposit'])->name('mealDeposit.update');
+    Route::post('/delete/deposit/{id}/meal', [MealDepositController::class, 'deleteMealDeposit'])->name('mealDeposit.delete');
 });
