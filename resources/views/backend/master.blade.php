@@ -1047,6 +1047,12 @@
     <!-- SWITCHER JS -->
     <script src="{{ asset('/') }}backend/assets/switcher/js/switcher.js"></script>
 
+    <!-- Bootstrap-Date Range Picker js-->
+    <script src="{{ asset('/') }}backend/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+
+    <!-- FORM ELEMENTS JS -->
+    <script src="{{ asset('/') }}backend/assets/js/formelementadvnced.js"></script>
+
 </body>
 
 

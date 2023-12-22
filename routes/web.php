@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\BackendController;
+use App\Http\Controllers\MealDepositController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SeatController;
+use App\Models\MealDeposit;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,4 +56,7 @@ Route::middleware([
     Route::post('/seat/add', [SeatController::class, 'storeAlocatedSeat'])->name('store.seat.alocated');
     Route::get('/seat/{id}/edit', [SeatController::class, 'editAlocatedSeat'])->name('edit.seat.alocated');
     Route::post('/seat/{id}/delete', [SeatController::class, 'deleteAlocatedSeat'])->name('delete.seat.alocated');
+
+    // routes for meal deposit
+    Route::get('/deposit/meal', [MealDepositController::class, 'addMealDeposit'])->name('mealDeposit.add');
 });
