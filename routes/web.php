@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EmployeeDesignationController;
 use App\Http\Controllers\MealDepositController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\RoomController;
@@ -73,4 +74,11 @@ Route::middleware([
     Route::get('/employee/{id}/edit', [EmployeeController::class, 'editEmployee'])->name('employee.edit');
     Route::post('/employee/{id}/update', [EmployeeController::class, 'updateEmployee'])->name('employee.update');
     Route::post('/employee/{id}/delete', [EmployeeController::class, 'deleteEmployee'])->name('employee.delete');
+
+    // routes for employee designation
+    Route::get('/designation/add', [EmployeeDesignationController::class, 'addDesignation'])->name('designation.add');
+    Route::post('/designation/add', [EmployeeDesignationController::class, 'storeDesignation'])->name('designation.store');
+    Route::get('/designation/{id}/edit', [EmployeeDesignationController::class, 'editDesignation'])->name('designation.edit');
+    Route::post('/designation/{id}/edit', [EmployeeDesignationController::class, 'updateDesignation'])->name('designation.update');
+    Route::post('/designation/{id}/delete', [EmployeeDesignationController::class, 'deleteDesignation'])->name('designation.delete');
 });
