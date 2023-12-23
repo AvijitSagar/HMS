@@ -47,9 +47,16 @@
                                                 <p class="text-danger pt-2">{{$errors->has('employee_name') ? $errors->first('employee_name') : ''}}</p>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="working_area">Working Area</label> <span class="text-danger"><b>*</b></span>
-                                                <input name="working_area" type="text" class="form-control" id="working_area" value="">
-                                                <p class="text-danger pt-2">{{$errors->has('working_area') ? $errors->first('working_area') : ''}}</p>
+                                                <label for="employee_designation_id">Select Designation</label> <span class="text-danger"><b>*</b></span>
+                                                <select name="employee_designation_id" class="form-control" id="employee_designation_id">
+                                                    <option value="" disabled selected>Select Designation</option>
+                                                    @foreach ($designations as $designation)
+                                                        <option value="{{ $designation->id }}">
+                                                            {{ $designation->designation_name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                <p class="text-danger pt-2">{{$errors->has('employee_designation_id') ? $errors->first('employee_designation_id') : ''}}</p>
                                             </div>
                                         </div>
                                         <div class="form-row">

@@ -48,8 +48,12 @@
                                                         <td>{{ $employee->employee_name }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Working Area</th>
-                                                        <td>{{ $employee->working_area }}</td>
+                                                        <th>Designation</th>
+                                                        <td>{{ $employee->employeeDesignation->designation_name }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Salary</th>
+                                                        <td>{{ $employee->employeeDesignation->designation_salary }} &#2547;</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Mobile</th>

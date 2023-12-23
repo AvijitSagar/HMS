@@ -48,7 +48,14 @@
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
                                                 <label for="working_area">Working Area</label> <span class="text-danger"><b>*</b></span>
-                                                <input name="working_area" value="{{$employee->working_area}}" type="text" class="form-control" id="working_area">
+                                                <select name="employee_designation_id" class="form-control" id="employee_designation_id">
+                                                    <option value="" disabled selected>Select Seat</option>
+                                                    @foreach ($designations as $designation)
+                                                        <option value="{{ $designation->id }}" {{$designation->id == $employee->employee_designation_id ? 'selected' : ''}}>
+                                                            {{ $designation->designation_name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
                                                 <p class="text-danger pt-2">{{$errors->has('working_area') ? $errors->first('working_area') : ''}}</p>
                                             </div>
                                         </div>

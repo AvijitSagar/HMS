@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\EmployeeDesignation;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
     public function addEmployee(){
-        return view('backend.employee.employee.index');
+        return view('backend.employee.employee.index', [
+            'designations' => EmployeeDesignation::all()
+        ]);
     }
 
     public function storeEmployee(Request $request){
@@ -30,7 +33,8 @@ class EmployeeController extends Controller
 
     public function editEmployee(string $id){
         return view('backend.employee.employee.edit', [
-            'employee' => Employee::find($id)
+            'employee' => Employee::find($id),
+            'designations' => EmployeeDesignation::all()
         ]);
     }
 

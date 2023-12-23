@@ -26,7 +26,7 @@ class Employee extends Model
     public static function newEmployee($request){
         self::$employee = new Employee();
         self::$employee->employee_name = $request->employee_name;
-        self::$employee->working_area = $request->working_area;
+        self::$employee->employee_designation_id = $request->employee_designation_id;
         self::$employee->employee_mobile = $request->employee_mobile;
         self::$employee->employee_voter_id = $request->employee_voter_id;
         self::$employee->employee_address = $request->employee_address;
@@ -37,7 +37,7 @@ class Employee extends Model
     public static function updateEmployee($request, $id){
         self::$employee = Employee::find($id);
         self::$employee->employee_name = $request->employee_name;
-        self::$employee->working_area = $request->working_area;
+        self::$employee->employee_designation_id = $request->employee_designation_id;
         self::$employee->employee_mobile = $request->employee_mobile;
         self::$employee->employee_voter_id = $request->employee_voter_id;
         self::$employee->employee_address = $request->employee_address;
@@ -56,5 +56,10 @@ class Employee extends Model
             unlink(self::$employee->employee_image);
         }
         self::$employee->delete();
+    }
+
+    // ekta employee er jonne designation ektai thakbe
+    public function employeeDesignation(){
+        return $this->belongsTo(EmployeeDesignation::class);
     }
 }

@@ -41,12 +41,9 @@
                                                 <tr>
                                                     <th class="border-bottom-0">SL</th>
                                                     <th class="border-bottom-0">Name</th>
-                                                    <th class="border-bottom-0">Working Area</th>
+                                                    <th class="border-bottom-0">Designation</th>
                                                     <th class="border-bottom-0">Mobile</th>
-                                                    {{-- <th class="border-bottom-0">Voter Id</th>
-                                                    <th class="border-bottom-0">Address</th>
-                                                    <th class="border-bottom-0">Image</th> --}}
-                                                    <th class="border-bottom-0">Status</th>
+                                                    <th class="border-bottom-0">Salary</th>
                                                     <th class="border-bottom-0">Actions</th>
                                                 </tr>
                                             </thead>
@@ -55,16 +52,12 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $employee->employee_name }}</td>
-                                                        <td>{{ $employee->working_area }}</td>
+                                                        <td>{{ $employee->employeeDesignation->designation_name }}</td>
                                                         <td>{{ $employee->employee_mobile }}</td>
-                                                        {{-- <td>{{ $employee->employee_voter_id }}</td>
-                                                        <td>{{ $employee->employee_address }}</td>
-                                                        <td>
-                                                            <img src="{{ $employee->employee_image }}" alt="Employee_image">
-                                                        </td> --}}
-                                                        <td class="{{$employee->status == 1 ? 'text-success' : 'text-danger'}}">
+                                                        <td>{{ $employee->employeeDesignation->designation_salary }} &#2547;</td>
+                                                        {{-- <td class="{{$employee->status == 1 ? 'text-success' : 'text-danger'}}">
                                                             {{ $employee->status == 1 ? 'Active' : 'Inactive' }}
-                                                        </td>
+                                                        </td> --}}
                                                         <td>
                                                             <div class="d-flex">
                                                                 <a href="{{route('employee.show', [$employee->id])}}"
