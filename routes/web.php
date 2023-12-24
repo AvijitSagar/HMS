@@ -3,6 +3,7 @@
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeDesignationController;
+use App\Http\Controllers\MealController;
 use App\Http\Controllers\MealDepositController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\RoomController;
@@ -66,7 +67,7 @@ Route::middleware([
     Route::post('/update/deposit/{id}/meal', [MealDepositController::class, 'updateMealDeposit'])->name('mealDeposit.update');
     Route::post('/delete/deposit/{id}/meal', [MealDepositController::class, 'deleteMealDeposit'])->name('mealDeposit.delete');
 
-    //routes for employee
+    // routes for employee
     Route::get('/employee/add', [EmployeeController::class, 'addEmployee'])->name('employee.add');
     Route::post('/employee/add', [EmployeeController::class, 'storeEmployee'])->name('employee.store');
     Route::get('/employee/manage', [EmployeeController::class, 'manageEmployee'])->name('employee.manage');
@@ -81,4 +82,8 @@ Route::middleware([
     Route::get('/designation/{id}/edit', [EmployeeDesignationController::class, 'editDesignation'])->name('designation.edit');
     Route::post('/designation/{id}/edit', [EmployeeDesignationController::class, 'updateDesignation'])->name('designation.update');
     Route::post('/designation/{id}/delete', [EmployeeDesignationController::class, 'deleteDesignation'])->name('designation.delete');
+
+    // routes for meal
+    Route::get('/meal/add', [MealController::class, 'addMeal'])->name('meal.add');
+    Route::post('/meal/add', [MealController::class, 'storeMeal'])->name('meal.store');
 });
