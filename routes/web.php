@@ -86,4 +86,8 @@ Route::middleware([
     // routes for meal
     Route::get('/meal/add', [MealController::class, 'addMeal'])->name('meal.add');
     Route::post('/meal/add', [MealController::class, 'storeMeal'])->name('meal.store');
+    Route::get('/meal/manage', [MealController::class, 'manageMeal'])->name('meal.manage');
+    Route::get('/meal/{id}/edit', [MealController::class, 'editMeal'])->name('meal.edit');
+    Route::post('/meal/{id}/update', [MealController::class, 'updateMeal'])->name('meal.update');
+    Route::post('/meal/{id}/delete', [MealController::class, 'deleteMeal'])->name('meal.delete');
 });
