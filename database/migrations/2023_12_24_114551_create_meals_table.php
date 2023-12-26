@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('meals', function (Blueprint $table) {
             $table->id();
-            $table->string('month');
+            $table->string('month_year');
             $table->integer('member_id');
             $table->integer('total_meal');
             $table->timestamps();

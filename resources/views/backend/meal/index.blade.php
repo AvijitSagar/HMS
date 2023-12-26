@@ -42,14 +42,9 @@
                                         <br><br>
                                         <div class="form-row">
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="bootstrapDatePicker1">Date</label>  <span class="text-danger"><b>*</b></span>
-                                                <div class="input-group">
-                                                    <div id="datePickerStyle1" class="input-group date" data-date-format="dd-mm-yyyy">
-                                                        <span class="input-group-addon input-group-text bg-primary-transparent"><i class="fe fe-calendar text-primary-dark"></i></span>
-                                                        <input class="form-control" name="month" id="bootstrapDatePicker1" type="text"/>
-                                                    </div>
-                                                </div>
-                                                <p class="text-danger pt-2">{{$errors->has('month') ? $errors->first('month') : ''}}</p>
+                                                <label for="month_year">Select Month and Year</label> <span class="text-danger"><b>*</b></span>
+                                                <input type="month" class="form-control" name="month_year" id="month_year">
+                                                <p class="text-danger pt-2">{{$errors->has('month_year') ? $errors->first('month_year') : ''}}</p>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
                                                 <label for="member_id">Member</label>  <span class="text-danger"><b>*</b></span>
