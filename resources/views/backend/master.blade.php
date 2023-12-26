@@ -1066,6 +1066,12 @@
     <!-- FORM ELEMENTS JS -->
     <script src="{{ asset('/') }}backend/assets/js/formelementadvnced.js"></script>
 
+
+
+    {{-- my custom js file  --}}
+    <script src="{{ asset('/') }}backend/assets/js/script.js"></script>
+    
+
 </body>
 
 
