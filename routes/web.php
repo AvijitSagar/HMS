@@ -8,6 +8,7 @@ use App\Http\Controllers\GroceryController;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\MealDepositController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\OtherExpenseController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SeatController;
 use App\Models\MealDeposit;
@@ -110,4 +111,13 @@ Route::middleware([
     Route::get('/bill/{id}/edit', [BillController::class, 'editBill'])->name('bill.edit');
     Route::post('/bill/{id}/update', [BillController::class, 'updateBill'])->name('bill.update');
     Route::post('/bill/{id}/delete', [BillController::class, 'deleteBill'])->name('bill.delete');
+
+    // routes for other expense
+    Route::get('/other/expense/add', [OtherExpenseController::class, 'addOtherExpense'])->name('otherExpense.add');
+    Route::post('/other/expense/add', [OtherExpenseController::class, 'storeOtherExpense'])->name('otherExpense.store');
+    Route::get('/other/expense/manage', [OtherExpenseController::class, 'manageOtherExpense'])->name('otherExpense.manage');
+    Route::get('/other/expense/{id}/show', [OtherExpenseController::class, 'showOtherExpense'])->name('otherExpense.show');
+    Route::get('/other/expense/{id}/edit', [OtherExpenseController::class, 'editOtherExpense'])->name('otherExpense.edit');
+    Route::post('/other/expense/{id}/update', [OtherExpenseController::class, 'updateOtherExpense'])->name('otherExpense.update');
+    Route::post('/other/expense/{id}/delete', [OtherExpenseController::class, 'deleteOtherExpense'])->name('otherExpense.delete');
 });
