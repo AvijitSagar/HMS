@@ -3,6 +3,7 @@
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeDesignationController;
+use App\Http\Controllers\GroceryController;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\MealDepositController;
 use App\Http\Controllers\MemberController;
@@ -90,4 +91,13 @@ Route::middleware([
     Route::get('/meal/{id}/edit', [MealController::class, 'editMeal'])->name('meal.edit');
     Route::post('/meal/{id}/update', [MealController::class, 'updateMeal'])->name('meal.update');
     Route::post('/meal/{id}/delete', [MealController::class, 'deleteMeal'])->name('meal.delete');
+
+    // routes for grocery
+    Route::get('/grocery/add', [GroceryController::class, 'addGrocery'])->name('grocery.add');
+    Route::post('/grocery/add', [GroceryController::class, 'storeGrocery'])->name('grocery.store');
+    Route::get('/grocery/manage', [GroceryController::class, 'manageGrocery'])->name('grocery.manage');
+    Route::get('/grocery/{id}/show', [GroceryController::class, 'showGrocery'])->name('grocery.show');
+    Route::get('/grocery/{id}/edit', [GroceryController::class, 'editGrocery'])->name('grocery.edit');
+    Route::post('/grocery/{id}/update', [GroceryController::class, 'updateGrocery'])->name('grocery.update');
+    Route::post('/grocery/{id}/delete', [GroceryController::class, 'deleteGrocery'])->name('grocery.delete');
 });

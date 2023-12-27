@@ -107,7 +107,7 @@
                     </ul>
                 </li>
                 <li>
-                    <h3>Expences</h3>
+                    <h3>Expenses</h3>
                 </li>
                 <li class="slide">
                     <a class="side-menu__item" data-bs-toggle="slide" href="#">
@@ -115,8 +115,8 @@
                         <span class="side-menu__label">Grocery</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Grocery</a></li>
-                        <li><a href="#" class="slide-item">Add Grocery</a></li>
-                        <li><a href="#" class="slide-item">Manage Grocery</a></li>
+                        <li><a href="{{route('grocery.add')}}" class="slide-item">Add Grocery</a></li>
+                        <li><a href="{{route('grocery.manage')}}" class="slide-item">Manage Grocery</a></li>
                     </ul>
                 </li>
                 <li class="slide">
