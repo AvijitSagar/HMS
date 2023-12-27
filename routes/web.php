@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BackendController;
+use App\Http\Controllers\BillController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeDesignationController;
 use App\Http\Controllers\GroceryController;
@@ -100,4 +101,13 @@ Route::middleware([
     Route::get('/grocery/{id}/edit', [GroceryController::class, 'editGrocery'])->name('grocery.edit');
     Route::post('/grocery/{id}/update', [GroceryController::class, 'updateGrocery'])->name('grocery.update');
     Route::post('/grocery/{id}/delete', [GroceryController::class, 'deleteGrocery'])->name('grocery.delete');
+
+    // routes for bills
+    Route::get('/bill/add', [BillController::class, 'addBill'])->name('bill.add');
+    Route::post('/bill/add', [BillController::class, 'storeBill'])->name('bill.store');
+    Route::get('/bill/manage', [BillController::class, 'manageBill'])->name('bill.manage');
+    Route::get('/bill/{id}/show', [BillController::class, 'showBill'])->name('bill.show');
+    Route::get('/bill/{id}/edit', [BillController::class, 'editBill'])->name('bill.edit');
+    Route::post('/bill/{id}/update', [BillController::class, 'updateBill'])->name('bill.update');
+    Route::post('/bill/{id}/delete', [BillController::class, 'deleteBill'])->name('bill.delete');
 });

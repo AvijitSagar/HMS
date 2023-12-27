@@ -3,7 +3,7 @@
         <div class="d-flex">
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="#"></a>
             <!-- sidebar-toggle-->
-            <a class="logo-horizontal " href="index.html">
+            <a class="logo-horizontal " href="{{route('dashboard')}}">
                 <img src="{{asset('/')}}backend/assets/images/brand/logo.png" class="header-brand-img desktop-logo" alt="logo">
                 <img src="{{asset('/')}}backend/assets/images/brand/logo-3.png" class="header-brand-img light-logo1"
                     alt="logo">

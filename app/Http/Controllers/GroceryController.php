@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class GroceryController extends Controller
 {
     public function addGrocery(){
-        return view('backend.grocery.index');
+        return view('backend.expense.grocery.index');
     }
 
     public function storeGrocery(Request $request){
@@ -18,17 +18,17 @@ class GroceryController extends Controller
 
     public function manageGrocery(){
         $groceries = Grocery::all();
-        return view('backend.grocery.manage', compact('groceries'));
+        return view('backend.expense.grocery.manage', compact('groceries'));
     }
 
     public function showGrocery(string $id){
         $grocery = Grocery::find($id);
-        return view('backend.grocery.show', compact('grocery'));
+        return view('backend.expense.grocery.show', compact('grocery'));
     }
 
     public function editGrocery(string $id){
         $grocery = Grocery::find($id);
-        return view('backend.grocery.edit', compact('grocery'));
+        return view('backend.expense.grocery.edit', compact('grocery'));
     }
 
     public function updateGrocery(Request $request, string $id){
