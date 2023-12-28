@@ -36,6 +36,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p class="text-center text-success">{{ Session::get('msg') }}</p>
+                                    <p class="text-center text-danger">{{ Session::get('error_msg') }}</p>
                                     <form class="needs-validation" novalidate action="{{route('otherExpense.add')}}" method="POST">
                                         @csrf
                                         <h6 class="text-center"><i>Other Expenses INFO</i></h6>
@@ -47,17 +48,15 @@
                                                 <p class="text-danger pt-2">{{$errors->has('month_year') ? $errors->first('month_year') : ''}}</p>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="other_expense_description">Description</label> <span class="text-danger"><b>*</b></span>
-                                                <textarea name="other_expense_description" class="form-control" cols="10" rows="1"></textarea>
-                                                <p class="text-danger pt-2">{{$errors->has('other_expense_description') ? $errors->first('other_expense_description') : ''}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
                                                 <label for="other_expense_amount">Other Expense Amount</label> <span class="text-danger"><b>*</b></span>
                                                 <input name="other_expense_amount" type="number" class="form-control" id="other_expense_amount">
                                                 <p class="text-danger pt-2">{{$errors->has('other_expense_amount') ? $errors->first('other_expense_amount') : ''}}</p>
                                             </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                                            <label for="other_expense_description">Description</label> <span class="text-danger"><b>*</b></span>
+                                            <textarea name="other_expense_description" class="form-control" cols="30" rows="1"></textarea>
+                                            <p class="text-danger pt-2">{{$errors->has('other_expense_description') ? $errors->first('other_expense_description') : ''}}</p>
                                         </div>
                                         <br>
                                         <button type="submit" class="btn btn-primary">Add Other Expence</button>

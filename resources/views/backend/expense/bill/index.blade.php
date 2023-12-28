@@ -36,6 +36,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p class="text-center text-success">{{ Session::get('msg') }}</p>
+                                    <p class="text-center text-danger">{{ Session::get('error_msg') }}</p>
                                     <form class="needs-validation" novalidate action="{{route('bill.add')}}" method="POST">
                                         @csrf
                                         <h6 class="text-center"><i>Bills Expenses INFO</i></h6>
@@ -54,24 +55,24 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="gas_bill">Gas Bill</label> <span class="text-danger"><b>*</b></span>
+                                                <label for="gas_bill">Gas Bill</label>
                                                 <input name="gas_bill" type="number" class="form-control" id="gas_bill">
                                                 <p class="text-danger pt-2">{{$errors->has('gas_bill') ? $errors->first('gas_bill') : ''}}</p>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="water_bill">Water Bill</label> <span class="text-danger"><b>*</b></span>
+                                                <label for="water_bill">Water Bill</label>
                                                 <input name="water_bill" type="number" class="form-control" id="water_bill">
                                                 <p class="text-danger pt-2">{{$errors->has('water_bill') ? $errors->first('water_bill') : ''}}</p>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="internet_bill">Internet Bill</label> <span class="text-danger"><b>*</b></span>
+                                                <label for="internet_bill">Internet Bill</label>
                                                 <input name="internet_bill" type="number" class="form-control" id="internet_bill">
                                                 <p class="text-danger pt-2">{{$errors->has('internet_bill') ? $errors->first('internet_bill') : ''}}</p>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
-                                                <label for="dish_bill">Dish Bill</label> <span class="text-danger"><b>*</b></span>
+                                                <label for="dish_bill">Dish Bill</label>
                                                 <input name="dish_bill" type="number" class="form-control" id="dish_bill">
                                                 <p class="text-danger pt-2">{{$errors->has('dish_bill') ? $errors->first('dish_bill') : ''}}</p>
                                             </div>

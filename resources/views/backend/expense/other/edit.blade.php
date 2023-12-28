@@ -36,6 +36,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p class="text-center text-success">{{ Session::get('msg') }}</p>
+                                    <p class="text-center text-danger">{{ Session::get('error_msg') }}</p>
                                     <form class="needs-validation" novalidate action="{{route('otherExpense.update', [$otherExpense->id])}}" method="POST">
                                         @csrf
                                         <h6 class="text-center"><i>Other Expense INFO</i></h6>
