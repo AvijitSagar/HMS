@@ -26,14 +26,14 @@ return new class extends Migration
             $table->string('gurdian_name');
             $table->string('gurdian_voter_id');
             $table->string('gurdian_mobile');
-            $table->string('gurdian_email');
+            $table->string('gurdian_email')->nullable();
             $table->longText('gurdian_address');
 
-            $table->string('local_gurdian_name');
-            $table->string('local_gurdian_occupation');
-            $table->string('local_gurdian_mobile');
-            $table->string('local_gurdian_email');
-            $table->longText('local_gurdian_address');
+            $table->string('local_gurdian_name')->nullable();
+            $table->string('local_gurdian_occupation')->nullable();
+            $table->string('local_gurdian_mobile')->nullable();
+            $table->string('local_gurdian_email')->nullable();
+            $table->longText('local_gurdian_address')->nullable();
 
             $table->tinyInteger('status')->default(1)->comment('1=Active, 0=Inactive');
 

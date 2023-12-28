@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('grocery_date');
             $table->integer('grocery_expense');
-            $table->longText('grocery_description');
+            $table->longText('grocery_description')->nullable();
             $table->timestamps();
         });
     }

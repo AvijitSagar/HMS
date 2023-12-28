@@ -12,6 +12,17 @@ class GroceryController extends Controller
     }
 
     public function storeGrocery(Request $request){
+
+        $this->validate($request, [
+            'grocery_date'          => 'required',
+            'grocery_expense'       => 'required|numeric',
+            'grocery_description'   => 'nullable'
+        ], [
+            'grocery_date.reuquired'    => 'Grocery date is required',
+            'grocery_expense.required'  => 'Grocery expense is required',
+            'grocery_expense.numeric'   => 'This field can contain numeric values only',
+        ]);
+
         Grocery::newGrocery($request);
         return back()->with('msg', 'Grocery expense record added successsfully...!');
     }
@@ -32,6 +43,17 @@ class GroceryController extends Controller
     }
 
     public function updateGrocery(Request $request, string $id){
+
+        $this->validate($request, [
+            'grocery_date'          => 'required',
+            'grocery_expense'       => 'required|numeric',
+            'grocery_description'   => 'nullable'
+        ], [
+            'grocery_date.reuquired'    => 'Grocery date is required',
+            'grocery_expense.required'  => 'Grocery expense is required',
+            'grocery_expense.numeric'   => 'This field can contain numeric values only',
+        ]);
+
         Grocery::updateGrocery($request, $id);
         return redirect(route('grocery.manage'))->with('msg', 'Grocery expense info updated successfully...!');
     }

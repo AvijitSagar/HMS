@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('month_year');
             $table->integer('electric_bill');
-            $table->integer('gas_bill');
-            $table->integer('water_bill');
-            $table->integer('internet_bill');
-            $table->integer('dish_bill');
+            $table->integer('gas_bill')->nullable();
+            $table->integer('water_bill')->nullable();
+            $table->integer('internet_bill')->nullable();
+            $table->integer('dish_bill')->nullable();
             $table->timestamps();
         });
     }

@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('employee_designation_id');
             $table->string('employee_name');
-            // $table->string('employee_designation_id');
-            $table->integer('employee_mobile');
-            $table->integer('employee_voter_id');
+            $table->string('employee_mobile');
+            $table->string('employee_voter_id');
             $table->longText('employee_address');
             $table->text('employee_image');
             $table->tinyInteger('status')->default(1)->comment('0=Inactive, 1=Active');

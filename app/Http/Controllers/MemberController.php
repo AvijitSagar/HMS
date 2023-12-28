@@ -74,6 +74,7 @@ class MemberController extends Controller
 
             'gurdian_mobile.required'       => 'Mobile number is required',
             'gurdian_mobile.numeric'        => 'Mobile number must be only number',
+            'gurdian_email.email'           => 'Please give a valid email address',
 
             'gurdian_address.required'      => 'Address is required',
             'gurdian_address.max'           => 'This field can contain maximum 1000 characters',
