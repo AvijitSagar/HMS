@@ -7,6 +7,7 @@ use App\Http\Controllers\EmployeeDesignationController;
 use App\Http\Controllers\GroceryController;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\MealDepositController;
+use App\Http\Controllers\MealRateController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OtherExpenseController;
 use App\Http\Controllers\RoomController;
@@ -120,4 +121,11 @@ Route::middleware([
     Route::get('/other/expense/{id}/edit', [OtherExpenseController::class, 'editOtherExpense'])->name('otherExpense.edit');
     Route::post('/other/expense/{id}/update', [OtherExpenseController::class, 'updateOtherExpense'])->name('otherExpense.update');
     Route::post('/other/expense/{id}/delete', [OtherExpenseController::class, 'deleteOtherExpense'])->name('otherExpense.delete');
+
+    // routes for meal-rate
+    Route::get('/meal-rate/add', [MealRateController::class, 'addMealRate'])->name('meal-rate.add');
+    Route::post('/meal-rate/calculate', [MealRateController::class, 'calculateMealRate'])->name('meal-rate.calculate');
+    Route::post('/meal-rate/store', [MealRateController::class, 'storeMealRate'])->name('meal-rate.store');
+    Route::get('/meal-rate/manage', [MealRateController::class, 'manageMealRate'])->name('meal-rate.manage');
+    Route::get('/meal-rate/{id}/show', [MealRateController::class, 'showMealRate'])->name('meal-rate.show');
 });

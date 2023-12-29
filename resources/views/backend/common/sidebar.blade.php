@@ -92,8 +92,9 @@
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Meals</a></li>
                         <li><a href="{{route('meal.add')}}" class="slide-item">Member Wise Meals</a></li>
-                        <li><a href="{{route('meal.manage')}}" class="slide-item">Manage</a></li>
-                        <li><a href="#" class="slide-item">Meal Rate</a></li>
+                        <li><a href="{{route('meal.manage')}}" class="slide-item">Manage Meals</a></li>
+                        <li><a href="{{route('meal-rate.add')}}" class="slide-item">Meal Rate</a></li>
+                        <li><a href="{{route('meal-rate.manage')}}" class="slide-item">Manage Meal Rate</a></li>
                     </ul>
                 </li>
                 <li class="slide">
