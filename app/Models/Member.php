@@ -101,4 +101,8 @@ class Member extends Model
     public function seat(){
         return $this->hasOne(Seat::class);
     }
+
+    public function meal(){
+        return $this->hasMany(Meal::class);
+    }
 }

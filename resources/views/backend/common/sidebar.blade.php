@@ -62,7 +62,7 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Member Payment</a></li>
-                        <li><a href="#" class="slide-item">Add Payment</a></li>
+                        <li><a href="{{route('payment.add')}}" class="slide-item">Add Payment</a></li>
                         <li><a href="#" class="slide-item">Approval</a></li>
                         <li><a href="#" class="slide-item">Manage</a></li>
                     </ul>

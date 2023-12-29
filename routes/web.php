@@ -10,6 +10,7 @@ use App\Http\Controllers\MealDepositController;
 use App\Http\Controllers\MealRateController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OtherExpenseController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SeatController;
 use App\Models\MealDeposit;
@@ -128,4 +129,8 @@ Route::middleware([
     Route::post('/meal-rate/store', [MealRateController::class, 'storeMealRate'])->name('meal-rate.store');
     Route::get('/meal-rate/manage', [MealRateController::class, 'manageMealRate'])->name('meal-rate.manage');
     Route::get('/meal-rate/{id}/show', [MealRateController::class, 'showMealRate'])->name('meal-rate.show');
+
+    // routes for payment
+    Route::get('/payment/add', [PaymentController::class, 'addPayment'])->name('payment.add');
+    Route::post('/payment/calculate', [PaymentController::class, 'calculatePayment'])->name('payment.calculate');
 });
