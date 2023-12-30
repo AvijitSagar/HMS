@@ -17,6 +17,9 @@ return new class extends Migration
             $table->integer('member_id');
             $table->integer('total_meal');
             $table->integer('meal_rate');
+            $table->integer('meal_expense');
+            $table->integer('meal_deposit');
+            $table->integer('meal_balance');
             $table->integer('service_charge');
             $table->integer('seat_rent');
             $table->integer('payable_amount');

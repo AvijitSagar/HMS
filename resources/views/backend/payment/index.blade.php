@@ -36,6 +36,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p class="text-center text-success">{{ Session::get('msg') }}</p>
+                                    <p class="text-center text-warning">{{ Session::get('warning-msg') }}</p>
                                     <p class="text-center text-danger">{{ Session::get('error-msg') }}</p>
                                     <form class="needs-validation" novalidate action="{{route('payment.calculate')}}" method="POST">
                                         @csrf
