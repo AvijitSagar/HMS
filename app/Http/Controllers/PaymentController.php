@@ -115,4 +115,14 @@ class PaymentController extends Controller
 
         return back()->with('msg', 'Payment records added successfully');
     }
+
+    public function managePayment(){
+        $payments = Payment::all();
+        return view('backend.payment.manage', compact('payments'));
+    }
+
+    public function showPayment(string $id){
+        $payment = Payment::find($id);
+        return view('backend.payment.show', compact('payment'));
+    }
 }

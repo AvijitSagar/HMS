@@ -133,4 +133,6 @@ Route::middleware([
     // routes for payment
     Route::get('/payment/add', [PaymentController::class, 'addPayment'])->name('payment.add');
     Route::post('/payment/calculate', [PaymentController::class, 'calculatePayment'])->name('payment.calculate');
+    Route::get('/payment/manage', [PaymentController::class, 'managePayment'])->name('payment.manage');
+    Route::get('/payment/{id}/show', [PaymentController::class, 'showPayment'])->name('payment.show');
 });
