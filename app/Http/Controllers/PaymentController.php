@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bill;
+use App\Models\Employee;
 use App\Models\Meal;
 use App\Models\MealDeposit;
 use App\Models\MealRate;
@@ -32,6 +33,7 @@ class PaymentController extends Controller
         $bills = Bill::where('month_year', 'like', "{$selectedMonthYear}%")->first();
         $others = OtherExpense::where('month_year', 'like', "{$selectedMonthYear}%")->first();
         $mealDeposits = MealDeposit::all();
+        $employee = Employee::all();
 
         // Check if records are found for the selected month and year
         if (!$bills || $mealDeposits->isEmpty()) {
@@ -40,6 +42,11 @@ class PaymentController extends Controller
 
         $members = Member::all();
         $countMembers = count($members);
+
+        // employee salary calculation
+        $employeeSalaries = $employee->pluck('employeeDesignation.designation_salary')->toArray();
+        $employeeSalary = array_sum($employeeSalaries);
+        $memberWiseEmoloyeeSalary = $employeeSalary / $countMembers;
 
         // Fetch meal rate for the selected month and year
         $mealRate = MealRate::where('month_year', 'like', "{$selectedMonthYear}%")->first();
@@ -55,10 +62,8 @@ class PaymentController extends Controller
 
         $totalBill = ($bills->electric_bill + $bills->gas_bill + $bills->water_bill + $bills->internet_bill + $bills->dish_bill) + $otherExpenseAmount;
 
-
-        // // Calculate the total bill
-        // $totalBill = ($bills->electric_bill + $bills->gas_bill + $bills->water_bill + $bills->internet_bill + $bills->dish_bill) + ($others->other_expense_amount);
-
+        
+        
         // Calculate the service charge per member
         $serviceCharge = $totalBill / $countMembers;
 
@@ -88,17 +93,24 @@ class PaymentController extends Controller
 
             $mealBalance = $depositsSum - $mealExpense;
 
-            // $payableAmount = abs($mealBalance) + ($serviceCharge + $memberWiseMeal->member->seat->room->seat_rent);
             if ($mealBalance >= 0) {
                 // If $mealBalance is positive, subtract it
-                $payableAmount = $mealBalance - ($serviceCharge + $memberWiseMeal->member->seat->room->seat_rent);
+                $payableAmount = $mealBalance - ($serviceCharge + $memberWiseMeal->member->seat->room->seat_rent + $memberWiseEmoloyeeSalary);
             } else {
                 // If $mealBalance is negative, add its absolute value
-                $payableAmount = abs($mealBalance) + ($serviceCharge + $memberWiseMeal->member->seat->room->seat_rent);
+                $payableAmount = abs($mealBalance) + ($serviceCharge + $memberWiseMeal->member->seat->room->seat_rent + $memberWiseEmoloyeeSalary);
             }
 
             $payment = new Payment();
             $payment->month_year = $selectedMonthYear;
+            $payment->electric_bill = $bills->electric_bill;
+            $payment->gas_bill = $bills->gas_bill;
+            $payment->water_bill = $bills->water_bill;
+            $payment->internet_bill = $bills->internet_bill;
+            $payment->dish_bill = $bills->dish_bill;
+            $payment->other_expense = $otherExpenseAmount;
+            $payment->total_bill = $totalBill;
+            $payment->total_members = $countMembers;
             $payment->member_id = $memberWiseMeal->member_id;
             $payment->total_meal = $memberWiseMeal->total_meal;
             $payment->meal_rate = $mealRate->meal_rate;
@@ -107,8 +119,8 @@ class PaymentController extends Controller
             $payment->meal_balance = $mealBalance;
             $payment->service_charge = $serviceCharge;
             $payment->seat_rent = $memberWiseMeal->member->seat->room->seat_rent;
-            
-            // $payment->payable_amount = max(0, $payableAmount); // Ensure payable amount is non-negative
+            $payment->employee_salary = $employeeSalary;
+            $payment->member_wise_employee_salary = $memberWiseEmoloyeeSalary;
             $payment->payable_amount = abs($payableAmount); // with negative
             $payment->save();
         }

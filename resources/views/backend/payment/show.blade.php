@@ -39,7 +39,14 @@
                                         <h5 class="mt-3 text-center text-success">{{ Session::get('msg') }}</h5>
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive">
+                                        <span>Electricicy : {{$payment->electric_bill}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>Gas : {{$payment->gas_bill}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>Water : {{$payment->water_bill}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>Internet : {{$payment->internet_bill}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>Dish : {{$payment->dish_bill}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>Other : {{$payment->other_expense}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>Total : {{$payment->total_bill}} &#2547;</span>
+                                        <div class="table-responsive mt-5">
                                             <table id="editable-responsive-table"
                                                 class="table editable-table table-nowrap table-bordered table-edit wp-100">
                                                 <tbody>
@@ -85,8 +92,16 @@
                                                         <td>{{ $payment->seat_rent }} &#2547;</td>
                                                     </tr>
                                                     <tr>
+                                                        <th>Employee Salary</th>
+                                                        <td>{{ $payment->employee_salary }} &#2547;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Member Wise Employee Salary</th>
+                                                        <td>{{ $payment->employee_salary . ' / ' . $payment->total_members . ' = ' . $payment->member_wise_employee_salary }} &#2547;</td>
+                                                    </tr>
+                                                    <tr>
                                                         <th>Amount to Pay</th>
-                                                        <td>{{ '(' . $payment->seat_rent . ' + ' . $payment->service_charge . ')' . ' - ' . '(' . $payment->meal_balance . ')' . ' = ' . $payment->payable_amount}} &#2547;</td>
+                                                        <td>{{ '(' . $payment->seat_rent . ' + ' . $payment->service_charge . ' + ' . $payment->member_wise_employee_salary . ')' . ' - ' . '(' . $payment->meal_balance . ')' . ' = ' . $payment->payable_amount}} &#2547;</td>
                                                     </tr>
                                                     
                                                 </tbody>

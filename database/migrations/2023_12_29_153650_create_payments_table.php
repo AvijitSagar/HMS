@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->string('month_year');
+            $table->integer('electric_bill');
+            $table->integer('gas_bill');
+            $table->integer('water_bill');
+            $table->integer('internet_bill');
+            $table->integer('dish_bill');
+            $table->integer('other_expense');
+            $table->integer('total_bill');
+            $table->integer('total_members');
             $table->integer('member_id');
             $table->integer('total_meal');
             $table->integer('meal_rate');
@@ -22,6 +30,8 @@ return new class extends Migration
             $table->integer('meal_balance');
             $table->integer('service_charge');
             $table->integer('seat_rent');
+            $table->integer('employee_salary');
+            $table->integer('member_wise_employee_salary');
             $table->integer('payable_amount');
             $table->timestamps();
         });
