@@ -2,9 +2,7 @@
     <div class="container">
         <div class="row align-items-center flex-row-reverse">
             <div class="col-md-12 col-sm-12 text-center">
-                Copyright © 2022 <a href="#">Noa</a>. Designed with <span
-                    class="fa fa-heart text-danger"></span> by <a href="#"> Spruko </a> All rights
-                reserved
+                Copyright © <?php echo date('Y') ?>. Developed by <a href="https://saggarr.com/" target="_blank"> Sagar Biswas. </a> All rights reserved
             </div>
         </div>
     </div>
