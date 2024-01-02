@@ -77,56 +77,55 @@
                                         <button type="submit" class="btn btn-primary">Alocate Seat</button>
                                     </form>
                                 </div>
-
-                                <div class="row row-sm">
-                                    <div class="col-lg-12">
-                                        <div class="card">
-                                            <div class="card-header border-bottom">
-                                                <h3 class="card-title">Manage Rooms</h3>
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="text-center text-success">{{ Session::get('msg') }}</p>
-                                                <div class="table-responsive">
-                                                    <table id="example3" class="table table-bordered text-nowrap border-bottom">
-                                                        <thead>
+                            </div>
+                            <div class="row row-sm">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-header border-bottom">
+                                            <h3 class="card-title">Manage Rooms</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="text-center text-success">{{ Session::get('msg') }}</p>
+                                            <div class="table-responsive">
+                                                <table id="example3" class="table table-bordered text-nowrap border-bottom">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="border-bottom-0">SL</th>
+                                                            <th class="border-bottom-0">member</th>
+                                                            <th class="border-bottom-0">Seat</th>
+                                                            <th class="border-bottom-0">Seat rent</th>
+                                                            <th class="border-bottom-0">Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($seatAlocations as $seatAlocation)
                                                             <tr>
-                                                                <th class="border-bottom-0">SL</th>
-                                                                <th class="border-bottom-0">member</th>
-                                                                <th class="border-bottom-0">Seat</th>
-                                                                <th class="border-bottom-0">Seat rent</th>
-                                                                <th class="border-bottom-0">Actions</th>
+                                                                <td>{{$loop->iteration}}</td>
+                                                                <td>{{$seatAlocation->member->member_first_name . ' ' . $seatAlocation->member->member_last_name}}</td>
+                                                                <td>{{$seatAlocation->room->floor . ' ' . $seatAlocation->room->room . ' ' . $seatAlocation->room->seat}}</td>
+                                                                <td>{{$seatAlocation->room->seat_rent}} &#2547;</td>
+                                                                <td>
+                                                                    <div class="d-flex">
+                                                                        <a href="{{route('edit.seat.alocated', [$seatAlocation->id])}}"
+                                                                            class="btn btn-success">
+                                                                            <i class="fe fe-edit"></i>
+                                                                        </a>
+                                                                        &nbsp;&nbsp;
+                                                                        <form action="{{route('delete.seat.alocated', [$seatAlocation->id])}}" method="POST">
+                                                                            @csrf
+                                                                            {{-- room_id ta hidden kore rakha hoyeche jeno SeatController a room er id dhore active status change kora jay --}}
+                                                                            <input type="hidden" name="room_id" value="{{ $seatAlocation->room_id }}">
+                                                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Delete seat:  for user:   ?')">
+                                                                                <i class="fe fe-trash"></i>
+                                                                            </button>
+                                                                        </form>
+                                                                    </div>
+                                                                </td>
                                                             </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @foreach ($seatAlocations as $seatAlocation)
-                                                                <tr>
-                                                                    <td>{{$loop->iteration}}</td>
-                                                                    <td>{{$seatAlocation->member->member_first_name . ' ' . $seatAlocation->member->member_last_name}}</td>
-                                                                    <td>{{$seatAlocation->room->floor . ' ' . $seatAlocation->room->room . ' ' . $seatAlocation->room->seat}}</td>
-                                                                    <td>{{$seatAlocation->room->seat_rent}} &#2547;</td>
-                                                                    <td>
-                                                                        <div class="d-flex">
-                                                                            <a href="{{route('edit.seat.alocated', [$seatAlocation->id])}}"
-                                                                                class="btn btn-success">
-                                                                                <i class="fe fe-edit"></i>
-                                                                            </a>
-                                                                            &nbsp;&nbsp;
-                                                                            <form action="{{route('delete.seat.alocated', [$seatAlocation->id])}}" method="POST">
-                                                                                @csrf
-                                                                                {{-- room_id ta hidden kore rakha hoyeche jeno SeatController a room er id dhore active status change kora jay --}}
-                                                                                <input type="hidden" name="room_id" value="{{ $seatAlocation->room_id }}">
-                                                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Delete seat:  for user:   ?')">
-                                                                                    <i class="fe fe-trash"></i>
-                                                                                </button>
-                                                                            </form>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            @endforeach
-            
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                                        @endforeach
+        
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
