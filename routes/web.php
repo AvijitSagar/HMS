@@ -142,6 +142,9 @@ Route::middleware([
 
         // routes for admin profile
         Route::get('/admin/profile', [AdminController::class, 'showProfile'])->name('profile.show')->middleware('auth:admin');
+
+        // routes for view registered user 
+        Route::get('/admin/registered/users', [AdminController::class, 'showRegisteredUsers'])->name('show.registered.user')->middleware('auth:admin');
     });
 
 

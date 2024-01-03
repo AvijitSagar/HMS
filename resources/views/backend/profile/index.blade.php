@@ -40,7 +40,7 @@
                                                 </div> --}}
                                                 <div class="ms-4">
                                                     <h4>{{Auth::user()->name}}</h4>
-                                                    <p class="text-muted mb-2">Member Since: {{Auth::user()->created_at->format('F Y')}}</p>
+                                                    <p class="text-muted mb-2">Admin Since: {{Auth::user()->created_at->format('F Y')}}</p>
                                                     {{-- <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-rss"></i> Follow</a>
                                                     <a href="mail-inbox.html" class="btn btn-secondary btn-sm"><i class="fa fa-envelope"></i> E-mail</a> --}}
                                                 </div>

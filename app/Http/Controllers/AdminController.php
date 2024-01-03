@@ -18,6 +18,7 @@ use Laravel\Fortify\Http\Requests\LoginRequest;
 use App\Actions\Fortify\AttemptToAuthenticate;
 use App\Actions\Fortify\RedirectIfTwoFactorAuthenticatable;
 use App\Http\Responses\LoginResponse;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -114,6 +115,10 @@ class AdminController extends Controller
 
     public function showProfile(){
         return view('backend.profile.index');
+    }
+    public function showRegisteredUsers(){
+        $registeredUsers = User::all();
+        return view('backend.registered-users.index', compact('registeredUsers'));
     }
 }
 
