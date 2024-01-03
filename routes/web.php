@@ -139,6 +139,9 @@ Route::middleware([
         Route::post('/admin/payment/calculate', [PaymentController::class, 'calculatePayment'])->name('payment.calculate')->middleware('auth:admin');
         Route::get('/admin/payment/manage', [PaymentController::class, 'managePayment'])->name('payment.manage')->middleware('auth:admin');
         Route::get('/admin/payment/{id}/show', [PaymentController::class, 'showPayment'])->name('payment.show')->middleware('auth:admin');
+
+        // routes for admin profile
+        Route::get('/admin/profile', [AdminController::class, 'showProfile'])->name('profile.show')->middleware('auth:admin');
     });
 
 

@@ -111,5 +111,9 @@ class AdminController extends Controller
 
         return app(LogoutResponse::class);
     }
+
+    public function showProfile(){
+        return view('backend.profile.index');
+    }
 }
 
