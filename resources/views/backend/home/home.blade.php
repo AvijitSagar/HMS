@@ -164,7 +164,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <h3 class="mb-2 fw-semibold">&#2547; {{$totalGroceryCurrentMonth}}</h3>
+                                            <h3 class="mb-2 fw-semibold">&#2547; {{number_format($totalGroceryCurrentMonth)}}</h3>
                                             <p class="text-muted fs-13 mb-0"><strong>Total Grocery</strong></p>
                                             <p class="text-primary fs-13 mb-0"><strong>This Month</strong></p>
                                             <p class="mb-0 mt-2 fs-12">
@@ -189,7 +189,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <h3 class="mb-2 fw-semibold">&#2547; {{$totalBillsPreviousMonth}}</h3>
+                                            <h3 class="mb-2 fw-semibold">&#2547; {{number_format($totalBillsPreviousMonth)}}</h3>
                                             <p class="text-muted fs-13 mb-0"><strong>Total Bill & Other</strong></p>
                                             <p class="text-danger fs-13 mb-0"><strong>Previous Month</strong></p>
                                             <p class="mb-0 mt-2 fs-12">
@@ -214,7 +214,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <h3 class="mb-2 fw-semibold">&#2547; {{$totalSeatRentPreviousMonth}}</h3>
+                                            <h3 class="mb-2 fw-semibold">&#2547; {{number_format($totalSeatRentPreviousMonth)}}</h3>
                                             <p class="text-muted fs-13 mb-0"><strong>Total Seat Rent</strong></p>
                                             <p class="text-danger fs-13 mb-0"><strong>Previous Month</strong></p>
                                             <p class="mb-0 mt-2 fs-12">

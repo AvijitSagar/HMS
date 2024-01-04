@@ -57,7 +57,7 @@
                                                             ?>
                                                         </td>
                                                         <td>{{$payment->member->member_first_name . ' ' . $payment->member->member_last_name}}</td>
-                                                        <td>{{$payment->payable_amount}} &#2547;</td>
+                                                        <td>{{number_format($payment->payable_amount)}} &#2547;</td>
                                                         <td>
                                                             <div class="d-flex">
                                                                 <a href="{{route('payment.show', [$payment->id])}}"

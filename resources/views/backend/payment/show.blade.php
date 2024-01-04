@@ -39,13 +39,13 @@
                                         <h5 class="mt-3 text-center text-success">{{ Session::get('msg') }}</h5>
                                     </div>
                                     <div class="card-body">
-                                        <span>Electricicy : {{$payment->electric_bill}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <span>Gas : {{$payment->gas_bill}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <span>Water : {{$payment->water_bill}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <span>Internet : {{$payment->internet_bill}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <span>Dish : {{$payment->dish_bill}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <span>Other : {{$payment->other_expense}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <span>Total : {{$payment->total_bill}} &#2547;</span>
+                                        <span>Electricicy : {{number_format($payment->electric_bill)}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>Gas : {{number_format($payment->gas_bill)}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>Water : {{number_format($payment->water_bill)}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>Internet : {{number_format($payment->internet_bill)}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>Dish : {{number_format($payment->dish_bill)}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>Other : {{number_format($payment->other_expense)}} &#2547;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>Total : {{number_format($payment->total_bill)}} &#2547;</span>
                                         <div class="table-responsive mt-5">
                                             <table id="editable-responsive-table"
                                                 class="table editable-table table-nowrap table-bordered table-edit wp-100">
@@ -69,39 +69,39 @@
                                                     </tr>
                                                     <tr>
                                                         <th>Meal Rate of The Month</th>
-                                                        <td>{{ $payment->meal_rate }} &#2547;</td>
+                                                        <td>{{ number_format($payment->meal_rate) }} &#2547;</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Meal Expense</th>
-                                                        <td>{{ $payment->total_meal . ' x ' . $payment->meal_rate . ' = ' . $payment->meal_expense }} &#2547;</td>
+                                                        <td>{{ $payment->total_meal . ' x ' . number_format($payment->meal_rate) . ' = ' . number_format($payment->meal_expense) }} &#2547;</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Meal Deposit</th>
-                                                        <td>{{ $payment->meal_deposit }} &#2547;</td>
+                                                        <td>{{ number_format($payment->meal_deposit) }} &#2547;</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Meal Balance</th>
-                                                        <td class="{{$payment->meal_balance < 0 ? 'text-danger' : ''}}">{{ $payment->meal_deposit . ' - ' . $payment->meal_expense . ' = ' . $payment->meal_balance }} &#2547;</td>
+                                                        <td class="{{$payment->meal_balance < 0 ? 'text-danger' : ''}}">{{ number_format($payment->meal_deposit) . ' - ' . number_format($payment->meal_expense) . ' = ' . number_format($payment->meal_balance) }} &#2547;</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Service Charge of The Month</th>
-                                                        <td>{{ $payment->service_charge }} &#2547;</td>
+                                                        <td>{{ number_format($payment->service_charge) }} &#2547;</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Seat Rent</th>
-                                                        <td>{{ $payment->seat_rent }} &#2547;</td>
+                                                        <td>{{ number_format($payment->seat_rent) }} &#2547;</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Employee Salary</th>
-                                                        <td>{{ $payment->employee_salary }} &#2547;</td>
+                                                        <td>{{ number_format($payment->employee_salary) }} &#2547;</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Member Wise Employee Salary</th>
-                                                        <td>{{ $payment->employee_salary . ' / ' . $payment->total_members . ' = ' . $payment->member_wise_employee_salary }} &#2547;</td>
+                                                        <td>{{ number_format($payment->employee_salary) . ' / ' . $payment->total_members . ' = ' . number_format($payment->member_wise_employee_salary) }} &#2547;</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Amount to Pay</th>
-                                                        <td>{{ '(' . $payment->seat_rent . ' + ' . $payment->service_charge . ' + ' . $payment->member_wise_employee_salary . ')' . ' - ' . '(' . $payment->meal_balance . ')' . ' = ' . $payment->payable_amount}} &#2547;</td>
+                                                        <td>{{ '(' . number_format($payment->seat_rent) . ' + ' . number_format($payment->service_charge) . ' + ' . number_format($payment->member_wise_employee_salary) . ')' . ' - ' . '(' . number_format($payment->meal_balance) . ')' . ' = ' . number_format($payment->payable_amount)}} &#2547;</td>
                                                     </tr>
                                                     
                                                 </tbody>
