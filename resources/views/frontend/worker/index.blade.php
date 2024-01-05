@@ -1,4 +1,4 @@
-@include('frontend.master')
+@extends('frontend.master')
 
 @section('title')
     Worker

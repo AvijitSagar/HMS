@@ -1,29 +1,29 @@
 <header>
     <nav class="navbar navbar-expand-lg hms-color hms-nav-height">
         <div class="container">
-          <a class="navbar-brand text-white" href="#"><h1>HMS</h1></a>
+          <a class="navbar-brand text-white" href="{{route('dashboard')}}"><h1>HMS</h1></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item mx-2">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="{{route('dashboard')}}" href="#">Home</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="seat.html">Seat</a>
+                <a class="nav-link" href="{{route('seat')}}">Seat</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="#">Meals</a>
+                <a class="nav-link" href="{{route('meal')}}">Meals</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="service.html">Services</a>
+                <a class="nav-link" href="{{route('service')}}">Services</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="worker.html">Worker</a>
+                <a class="nav-link" href="{{route('worker')}}">Worker</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="payment.html">Payment</a>
+                <a class="nav-link" href="{{route('payment')}}">Payment</a>
               </li>
             </ul>
             <div class="dropdown">
@@ -31,8 +31,14 @@
                   Dropdown button
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Profile</a></li>
-                  <li><a class="dropdown-item" href="#">Logout</a></li>
+                  <li><a class="dropdown-item" href="{{ route('profile.show') }}">Profile</a></li>
+                  {{-- <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li> --}}
+                  <li>
+                    <form action="{{ route('logout') }}" method="POST">
+                      @csrf
+                      <button>Logout</button>
+                    </form>
+                  </li>
                 </ul>
               </div>
           </div>

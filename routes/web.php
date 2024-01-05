@@ -5,6 +5,12 @@ use App\Http\Controllers\BackendController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeDesignationController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\FrontMealController;
+use App\Http\Controllers\FrontPaymentController;
+use App\Http\Controllers\FrontSeatController;
+use App\Http\Controllers\FrontServiceController;
+use App\Http\Controllers\FrontWorkerController;
 use App\Http\Controllers\GroceryController;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\MealDepositController;
@@ -154,7 +160,14 @@ Route::middleware([
 config('jetstream.auth_session'),
 'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // })->name('dashboard');
+
+    Route::get('/dashboard', [FrontendController::class, 'index'])->name('dashboard');
+    Route::get('/meal', [FrontMealController::class, 'index'])->name('meal');
+    Route::get('/payment', [FrontPaymentController::class, 'index'])->name('payment');
+    Route::get('/seat', [FrontSeatController::class, 'index'])->name('seat');
+    Route::get('/service', [FrontServiceController::class, 'index'])->name('service');
+    Route::get('/worker', [FrontWorkerController::class, 'index'])->name('worker');
 });
