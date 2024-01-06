@@ -17,9 +17,9 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>101A</td>
-                    <td>2500 &#2547;</td>
-                    <td>5 january 2024</td>
+                    <td>{{$member->seat->room->floor . $member->seat->room->room . $member->seat->room->seat}}</td>
+                    <td>{{$member->seat->room->seat_rent}} &#2547;</td>
+                    <td>{{$member->seat->created_at}}</td>
                 </tr>
                 </tbody>
             </table>

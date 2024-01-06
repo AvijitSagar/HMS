@@ -8,22 +8,22 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item mx-2">
-                <a class="nav-link active" aria-current="{{route('dashboard')}}" href="#">Home</a>
+                <a class="nav-link {{Request::routeIs('dashboard') ? 'active' : ''}}" aria-current="" href="{{route('dashboard')}}">Home</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="{{route('seat')}}">Seat</a>
+                <a class="nav-link {{Request::routeIs('seat') ? 'active' : ''}}" href="{{route('seat')}}">Seat</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="{{route('meal')}}">Meals</a>
+                <a class="nav-link {{Request::routeIs('meal') ? 'active' : ''}}" href="{{route('meal')}}">Meals</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="{{route('service')}}">Services</a>
+                <a class="nav-link {{Request::routeIs('service') ? 'active' : ''}}" href="{{route('service')}}">Services</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="{{route('worker')}}">Worker</a>
+                <a class="nav-link {{Request::routeIs('worker') ? 'active' : ''}}" href="{{route('worker')}}">Worker</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="{{route('payment')}}">Payment</a>
+                <a class="nav-link {{Request::routeIs('payment') ? 'active' : ''}}" href="{{route('payment')}}">Payment</a>
               </li>
             </ul>
             <div class="dropdown">

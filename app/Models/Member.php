@@ -105,4 +105,9 @@ class Member extends Model
     public function meal(){
         return $this->hasMany(Meal::class);
     }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class, 'member_id', 'id');
+    }
 }
