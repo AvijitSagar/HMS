@@ -37,7 +37,7 @@
                                 </ul>
                             </td>
                             <td>{{number_format($payment->other_expense)}} &#2547;</td>
-                            <td>{{number_format($payment->service_charge)}} &#2547;</td>
+                            <td>({{number_format($payment->total_bill)}} + {{number_format($payment->other_expense)}}) / {{$payment->total_members}} = {{number_format($payment->service_charge)}} &#2547;</td>
                         </tr>
                     @endforeach
                     
