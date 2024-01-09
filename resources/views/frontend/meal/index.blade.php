@@ -19,7 +19,12 @@
                 <tbody>
                     @foreach($member->meal as $meal)
                         <tr>
-                            <td>{{ $meal->month_year }}</td>
+                            <td>
+                                <?php
+                                    $date = DateTime::createFromFormat('Y-m', $meal->month_year);
+                                    echo $date->format('F Y');
+                                ?>
+                            </td>
                             <td>{{ $meal->total_meal }}</td>
                             <td>
                                 @php

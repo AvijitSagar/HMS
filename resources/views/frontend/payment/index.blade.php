@@ -11,7 +11,7 @@
                 <thead>
                 <tr>
                     <th scope="col">Month</th>
-                    <th scope="col">Meal Cost</th>
+                    <th scope="col">Meal Balance</th>
                     <th scope="col">Service Charge</th>
                     <th scope="col">Worker Charge</th>
                     <th scope="col">Seat Rent</th>
@@ -19,14 +19,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>January 2024</td>
-                    <td>2600 &#2547;</td>
-                    <td>400 &#2547;</td>
-                    <td>2200 &#2547;</td>
-                    <td>2500 &#2547;</td>
-                    <td>7000 &#2547;</td>
-                </tr>
+                    @foreach ($member->payments as $payment)
+                        <tr>
+                            <td>
+                                <?php
+                                    $date = DateTime::createFromFormat('Y-m', $payment->month_year);
+                                    echo $date->format('F Y');
+                                ?>
+                            </td>
+                            <td class="{{($payment->meal_balance)< 0 ? 'text-danger' : ''}}">{{number_format($payment->meal_balance)}} &#2547;</td>
+                            <td>{{number_format($payment->service_charge)}} &#2547;</td>
+                            <td>{{number_format($payment->member_wise_employee_salary)}} &#2547;</td>
+                            <td>{{number_format($payment->seat_rent)}} &#2547;</td>
+                            <td>{{number_format($payment->payable_amount)}} &#2547;</td>
+                        </tr>
+                    @endforeach
+                
                 </tbody>
             </table>
         </div>

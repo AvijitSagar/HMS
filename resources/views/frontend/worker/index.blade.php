@@ -11,24 +11,23 @@
                 <thead>
                 <tr>
                     <th scope="col">Month</th>
-                    <th scope="col">Worker Salary</th>
-                    <th scope="col">Worker Charge</th>
+                    <th scope="col">Total Worker Salary</th>
+                    <th scope="col">Perhead Charge</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>January 2024</td>
-                    <td>
-                        <ul>
-                            <li>worker 1:</li>
-                            <li>worker 2:</li>
-                            <li>worker 3:</li>
-                            <hr>
-                            <li>Total:</li>
-                        </ul>
-                    </td>
-                    <td>4000 &#2547;</td>
-                </tr>
+                    @foreach ($member->payments as $payment)
+                        <tr>
+                            <td>
+                                <?php
+                                    $date = DateTime::createFromFormat('Y-m', $payment->month_year);
+                                    echo $date->format('F Y');
+                                ?>
+                            </td>
+                            <td>{{number_format($payment->employee_salary)}} / {{$payment->total_members}}</td>
+                            <td>{{number_format($payment->member_wise_employee_salary)}} &#2547;</td> 
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

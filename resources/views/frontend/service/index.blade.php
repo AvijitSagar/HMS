@@ -19,20 +19,25 @@
                 <tbody>
                     @foreach ($member->payments as $payment)
                         <tr>
-                            <td>{{$payment->month_year}}</td>
+                            <td>
+                                <?php
+                                    $date = DateTime::createFromFormat('Y-m', $payment->month_year);
+                                    echo $date->format('F Y');
+                                ?>
+                            </td>
                             <td>
                                 <ul>
-                                    <li>Electricity: {{$payment->electric_bill}}</li>
-                                    <li>Water: {{$payment->water_bill}}</li>
-                                    <li>Gas: {{$payment->gas_bill}}</li>
-                                    <li>Internet: {{$payment->internet_bill}}</li>
-                                    <li>Dish: {{$payment->dish_bill}}</li>
+                                    <li>Electricity: {{number_format($payment->electric_bill)}} &#2547;</li>
+                                    <li>Water: {{number_format($payment->water_bill)}} &#2547;</li>
+                                    <li>Gas: {{number_format($payment->gas_bill)}} &#2547;</li>
+                                    <li>Internet: {{number_format($payment->internet_bill)}} &#2547;</li>
+                                    <li>Dish: {{number_format($payment->dish_bill)}} &#2547;</li>
                                     <hr>
-                                    <li>Total: {{$payment->total_bill}} / {{$payment->total_members}}</li>
+                                    <li>Total: {{number_format($payment->total_bill)}} &#2547;</li>
                                 </ul>
                             </td>
-                            <td>{{$payment->other_expense}} &#2547;</td>
-                            <td>{{$payment->service_charge}} &#2547;</td>
+                            <td>{{number_format($payment->other_expense)}} &#2547;</td>
+                            <td>{{number_format($payment->service_charge)}} &#2547;</td>
                         </tr>
                     @endforeach
                     
