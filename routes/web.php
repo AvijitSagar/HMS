@@ -35,7 +35,7 @@ use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::middleware('admin:admin')->group(function(){
