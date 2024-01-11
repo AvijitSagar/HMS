@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
@@ -99,6 +100,7 @@ class MemberController extends Controller
     public function manageMember()
     {
         return view('backend.member.member.manage', [
+            'users' => User::all(),
             'members' => Member::all()
         ]);
     }

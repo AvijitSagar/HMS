@@ -45,6 +45,7 @@
                                                     <th class="border-bottom-0">Email</th>
                                                     <th class="border-bottom-0">Seat</th>
                                                     <th class="border-bottom-0">Seat rent</th>
+                                                    <th class="border-bottom-0">Register status</th>
                                                     <th class="border-bottom-0">Status</th>
                                                     <th class="border-bottom-0">Actions</th>
                                                 </tr>
@@ -58,10 +59,22 @@
                                                         <td>{{ $member->member_email }}</td>
                                                         {{-- member model a seat model er sathe one to one relation kora ache --}}
                                                         <td class="{{$member->seat ? '' : 'text-danger'}}">
-                                                            {{ $member->seat ? $member->seat->room->floor . ' ' . $member->seat->room->room . ' ' . $member->seat->room->seat : 'Not allocated' }}
+                                                            {{-- {{ $member->seat ? $member->seat->room->floor . ' ' . $member->seat->room->room . ' ' . $member->seat->room->seat : 'Not allocated' }} --}}
+                                                            @if($member->seat)
+                                                                {{ $member->seat->room->floor . ' ' . $member->seat->room->room . ' ' . $member->seat->room->seat }}
+                                                            @else
+                                                                <a href="{{ route('seat.alocate') }}">Alocate seat</a>
+                                                            @endif
                                                         </td>
                                                         <td class="{{$member->seat ? '' : 'text-danger'}}">
                                                             {{ $member->seat && $member->seat->room->seat_rent ? $member->seat->room->seat_rent : 'N/A' }} &#2547;
+                                                        </td>
+                                                        <td>
+                                                            @if($users->pluck('email')->contains($member->member_email))
+                                                                <span class="text-success">Registered</span>
+                                                            @else
+                                                                <a href="{{route('user.register.by.admin')}}" class="text-danger">Register now</a>
+                                                            @endif
                                                         </td>
                                                         <td class="{{$member->status == 1 ? 'text-success' : 'text-danger'}}">
                                                             {{ $member->status == 1 ? 'Active' : 'Inactive' }}
