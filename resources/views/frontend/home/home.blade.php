@@ -20,7 +20,12 @@
                         </tr>
                         <tr>
                             <th>Seat:</th>
-                            <td>{{$member->seat->room->floor . $member->seat->room->room . $member->seat->room->seat}}</td>
+                            @if($member && $member->seat)
+                                <td>{{ $member->seat->room->floor . $member->seat->room->room . $member->seat->room->seat }}</td>
+                            @else
+                                <td>Not assigned a seat yet</td>
+                            @endif
+                            {{-- <td>{{$member->seat->room->floor . $member->seat->room->room . $member->seat->room->seat}}</td> --}}
                         </tr>
                         
                         <tr>

@@ -21,6 +21,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SeatController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -151,6 +152,10 @@ Route::middleware([
 
         // routes for view registered user 
         Route::get('/admin/registered/users', [AdminController::class, 'showRegisteredUsers'])->name('show.registered.user')->middleware('auth:admin');
+
+        // admin panel theke user register er route
+        Route::get('/admin/register/user', [RegisteredUserController::class, 'create'])->name('user.register.by.admin')->middleware('auth:admin');
+        Route::post('/admin/register/user', [RegisteredUserController::class, 'store'])->name('store.registered.user.by.admin')->middleware('auth:admin');
     });
 
 
