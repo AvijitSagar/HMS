@@ -29,7 +29,7 @@
                         </tr>
                         
                         <tr>
-                            <th>Amount to pay ({{Carbon\Carbon::now()->format('F Y')}})</th>
+                            <th>Amount to pay ({{Carbon\Carbon::now()->format('F Y')}}):</th>
                             <td>
                                 <?php 
                                     if($amountToPay == null){

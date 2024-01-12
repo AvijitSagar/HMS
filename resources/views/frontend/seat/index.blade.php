@@ -20,7 +20,7 @@
                     <tr>
                         <td>{{$member->seat->room->floor . $member->seat->room->room . $member->seat->room->seat}}</td>
                         <td>{{$member->seat->room->seat_rent}} &#2547;</td>
-                        <td>{{$member->seat->created_at}}</td>
+                        <td>{{($member->seat->created_at->format('d F Y'))}}</td>
                     </tr>
                     </tbody>
                 </table>

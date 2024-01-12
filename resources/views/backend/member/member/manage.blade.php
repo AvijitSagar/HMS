@@ -58,12 +58,12 @@
                                                         <td>{{ $member->member_mobile }}</td>
                                                         <td>{{ $member->member_email }}</td>
                                                         {{-- member model a seat model er sathe one to one relation kora ache --}}
-                                                        <td class="{{$member->seat ? '' : 'text-danger'}}">
+                                                        <td>
                                                             {{-- {{ $member->seat ? $member->seat->room->floor . ' ' . $member->seat->room->room . ' ' . $member->seat->room->seat : 'Not allocated' }} --}}
                                                             @if($member->seat)
                                                                 {{ $member->seat->room->floor . ' ' . $member->seat->room->room . ' ' . $member->seat->room->seat }}
                                                             @else
-                                                                <a href="{{ route('seat.alocate') }}">Alocate seat</a>
+                                                                <a class="tag tag-red" href="{{ route('seat.alocate') }}">Allocate seat</a>
                                                             @endif
                                                         </td>
                                                         <td class="{{$member->seat ? '' : 'text-danger'}}">
@@ -73,7 +73,7 @@
                                                             @if($users->pluck('email')->contains($member->member_email))
                                                                 <span class="text-success">Registered</span>
                                                             @else
-                                                                <a href="{{route('user.register.by.admin')}}" class="text-danger">Register now</a>
+                                                                <a class="tag tag-red" href="{{route('user.register.by.admin')}}" target="_blank" class="text-danger">Register now</a>
                                                             @endif
                                                         </td>
                                                         <td class="{{$member->status == 1 ? 'text-success' : 'text-danger'}}">
