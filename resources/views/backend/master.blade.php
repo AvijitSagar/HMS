@@ -1,10 +1,6 @@
 <!doctype html>
 <html lang="en" dir="ltr">
-<!-- This "app.blade.php" master page is used for all the pages content present in "views/livewire" except "custom" and "switcher" pages -->
-
-<!-- Mirrored from laravel8.spruko.com/noa/index by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 06 May 2023 13:07:10 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
 
@@ -1074,8 +1070,8 @@
     {{-- my custom js file  --}}
     <script src="{{ asset('/') }}backend/assets/js/script.js"></script>
 
+    {{-- jquery for get members when select the month_year from payment status view --}}
     <script>
-
         function getPaymentInfoesByMonthYear(month_year){
             $.ajax({
                 type: "GET",
@@ -1095,11 +1091,10 @@
                 }
             })
         }
-
     </script>
 
+{{-- jquery for get payable_amount and payment_id when select the member from payment status view --}}
     <script>
-
         function getPayableAmountByMember(memberId) {
             $.ajax({
                 type: "GET",
@@ -1111,14 +1106,13 @@
                         var payableAmount = value.payable_amount;
                         $('#payable_amount').val(payableAmount);
 
-                        var paumentId = value.id;
-                        $('#payment_id').val(paumentId);
+                        var paymentId = value.id;
+                        $('#payment_id').val(paymentId);
                         return false;
                     });
                 }
             });
         }
-
     </script>
     
 
