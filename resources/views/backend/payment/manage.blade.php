@@ -35,6 +35,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p class="text-center text-success">{{ Session::get('msg') }}</p>
+                                    <p class="text-center text-danger">{{ Session::get('error-msg') }}</p>
                                     <div class="table-responsive">
                                         <table id="example3" class="table table-bordered text-nowrap border-bottom">
                                             <thead>
@@ -43,6 +44,7 @@
                                                     <th class="border-bottom-0">Date</th>
                                                     <th class="border-bottom-0">Member</th>
                                                     <th class="border-bottom-0">Payable Amount</th>
+                                                    <th class="border-bottom-0">Payable Status</th>
                                                     <th class="border-bottom-0">Actions</th>
                                                 </tr>
                                             </thead>
@@ -58,6 +60,15 @@
                                                         </td>
                                                         <td>{{$payment->member->member_first_name . ' ' . $payment->member->member_last_name}}</td>
                                                         <td>{{number_format($payment->payable_amount)}} &#2547;</td>
+                                                        <td class="{{$payment->paymentStatus && $payment->id == $payment->paymentStatus->payment_id ? 'text-success' : 'text-danger'}}">
+                                                            <?php
+                                                                if ($payment->paymentStatus && $payment->id == $payment->paymentStatus->payment_id) {
+                                                                    echo 'paid';
+                                                                } else {
+                                                                    echo 'unpaid <a class="tag tag-success" href="'.route('payment.status.add').'">collect payment</a>';
+                                                                }
+                                                            ?>
+                                                        </td>
                                                         <td>
                                                             <div class="d-flex">
                                                                 <a href="{{route('payment.show', [$payment->id])}}"

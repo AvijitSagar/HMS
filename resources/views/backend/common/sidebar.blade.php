@@ -68,7 +68,7 @@
                         <li class="side-menu-label1"><a href="javascript:void(0)">Member Payment</a></li>
                         <li><a href="{{route('payment.add')}}" class="slide-item">Calculate Payment</a></li>
                         <li><a href="{{route('payment.manage')}}" class="slide-item">Manage Payment</a></li>
-                        <li><a href="#" class="slide-item">Approval</a></li>
+                        <li><a href="{{route('payment.status.add')}}" class="slide-item">Collect Payment</a></li>
                     </ul>
                 </li>
                 <li>

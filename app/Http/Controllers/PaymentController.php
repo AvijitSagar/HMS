@@ -10,6 +10,7 @@ use App\Models\MealRate;
 use App\Models\Member;
 use App\Models\OtherExpense;
 use App\Models\Payment;
+use App\Models\PaymentStatus;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -130,7 +131,8 @@ class PaymentController extends Controller
 
     public function managePayment(){
         $payments = Payment::all();
-        return view('backend.payment.manage', compact('payments'));
+        $paymentStatus = PaymentStatus::all();
+        return view('backend.payment.manage', compact('payments', 'paymentStatus'));
     }
 
     public function showPayment(string $id){

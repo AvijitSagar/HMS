@@ -103,7 +103,18 @@
                                                         <th>Amount to Pay</th>
                                                         <td>{{ '(' . number_format($payment->seat_rent) . ' + ' . number_format($payment->service_charge) . ' + ' . number_format($payment->member_wise_employee_salary) . ')' . ' - ' . '(' . number_format($payment->meal_balance) . ')' . ' = ' . number_format($payment->payable_amount)}} &#2547;</td>
                                                     </tr>
-                                                    
+                                                    <tr>
+                                                        <th>Payment Status</th>
+                                                        <td class="{{$payment->paymentStatus && $payment->id == $payment->paymentStatus->payment_id ? 'text-success' : 'text-danger'}}">
+                                                            <?php
+                                                                if ($payment->paymentStatus && $payment->id == $payment->paymentStatus->payment_id) {
+                                                                    echo 'paid';
+                                                                } else {
+                                                                    echo 'unpaid <a class="tag tag-success" href="'.route('payment.status.add').'">collect payment</a>';
+                                                                }
+                                                            ?>
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                             <a href="{{route('payment.manage')}}">

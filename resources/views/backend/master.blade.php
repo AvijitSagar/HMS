@@ -1073,6 +1073,53 @@
 
     {{-- my custom js file  --}}
     <script src="{{ asset('/') }}backend/assets/js/script.js"></script>
+
+    <script>
+
+        function getPaymentInfoesByMonthYear(month_year){
+            $.ajax({
+                type: "GET",
+                url: "{{route('get-payment-infoes-by-month-year')}}",
+                data: {id: month_year},
+                dataType: "JSON",
+                success: function(response){
+                    // console.log(response);
+                    var option = '';
+                    option += '<option value="" disabled selected>Select Member</option>'
+                    $.each(response, function(key,value){
+                        option += '<option value="'+value.id+'">'+value.member.member_first_name+ ' ' +value.member.member_last_name+'</option>'
+                    });
+                    var member_id = $('#member_id');
+                    member_id.empty();
+                    member_id.append(option);
+                }
+            })
+        }
+
+    </script>
+
+    <script>
+
+        function getPayableAmountByMember(memberId) {
+            $.ajax({
+                type: "GET",
+                url: "{{ route('get-payable-amount-by-member') }}",
+                data: { id: memberId },
+                dataType: "JSON",
+                success: function (response) {
+                    $.each(response, function(key,value){
+                        var payableAmount = value.payable_amount;
+                        $('#payable_amount').val(payableAmount);
+
+                        var paumentId = value.id;
+                        $('#payment_id').val(paumentId);
+                        return false;
+                    });
+                }
+            });
+        }
+
+    </script>
     
 
 </body>

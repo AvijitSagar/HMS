@@ -18,6 +18,7 @@ use App\Http\Controllers\MealRateController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OtherExpenseController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PaymentStatusController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SeatController;
 use Illuminate\Support\Facades\Route;
@@ -156,6 +157,12 @@ Route::middleware([
         // admin panel theke user register er route
         Route::get('/admin/register/user', [RegisteredUserController::class, 'create'])->name('user.register.by.admin')->middleware('auth:admin');
         Route::post('/admin/register/user', [RegisteredUserController::class, 'store'])->name('store.registered.user.by.admin')->middleware('auth:admin');
+
+        // routes for payment status
+        Route::get('/admin/payment/status', [PaymentStatusController::class, 'addPaymentStatus'])->name('payment.status.add')->middleware('auth:admin');
+        Route::get('get-payment-infoes-by-month-year', [PaymentStatusController::class, 'getPaymentInfoesByMonthYear'])->name('get-payment-infoes-by-month-year');
+        Route::get('get-payable-amount-by-member', [PaymentStatusController::class, 'getPayableAmountByMember'])->name('get-payable-amount-by-member');
+        Route::post('/admin/payment/status', [PaymentStatusController::class, 'storePaymentStatus'])->name('payment.status.store')->middleware('auth:admin');
     });
 
 

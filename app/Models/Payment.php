@@ -17,4 +17,9 @@ class Payment extends Model
     {
         return $this->belongsTo(Member::class, 'member_id', 'id');
     }
+
+    public function paymentStatus()
+    {
+        return $this->hasOne(PaymentStatus::class, 'payment_id');
+    }
 }
