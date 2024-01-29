@@ -70,7 +70,7 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <a href="#">
+                                            <a href="{{route('calculation.monthly')}}">
                                                 <input type="button" class="btn btn-danger" value="Go back">
                                             </a>
                                         </div>

@@ -165,7 +165,7 @@
                         <span class="side-menu__label">Member Registration</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Account</a></li>
-                        <li><a href="{{route('user.register.by.admin')}}" class="slide-item">Register New Member</a></li>
+                        {{-- <li><a href="{{route('user.register.by.admin')}}" class="slide-item">Register New Member</a></li> --}}
                         <li><a href="{{route('show.registered.user')}}" class="slide-item">See Registered Members</a></li>
                     </ul>
                 </li>
